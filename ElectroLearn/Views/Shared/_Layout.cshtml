@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - ElectroLearn</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .navbar {
+            background: rgba(0,0,0,0.7) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .navbar-brand {
+            font-weight: 600;
+            font-size: 22px;
+        }
+
+        .nav-link {
+            color: #ddd !important;
+            transition: 0.3s;
+        }
+
+            .nav-link:hover {
+                color: #00c6ff !important;
+            }
+
+        .btn-nav {
+            border-radius: 20px;
+            margin-left: 10px;
+        }
+
+        .footer {
+            background: #020617;
+            padding: 15px;
+            text-align: center;
+            margin-top: 40px;
+            color: #aaa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+                ⚡ ElectroLearn
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarContent">
+
+                <!-- IZQUIERDA -->
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="ConceptosRobotica" asp-action="Index">Conceptos de Robótica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="ProyectosRobotica" asp-action="Index">Proyectos de Robótica</a>
+                    </li>
+                </ul>
+
+                <!-- DERECHA -->
+                <ul class="navbar-nav">
+
+                    @if (Context.Session.GetString("usuario") != null)
+                    {
+                        <li class="nav-item">
+                            <span class="nav-link">👋 @Context.Session.GetString("usuario")</span>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light btn-nav" asp-controller="Auth" asp-action="Dashboard">
+                                Dashboard
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-danger btn-nav" asp-controller="Auth" asp-action="Logout">
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-info btn-nav" asp-controller="Auth" asp-action="Login">
+                                Iniciar sesión
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="btn btn-primary btn-nav" asp-controller="Auth" asp-action="Registro">
+                                Registrarse
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENIDO -->
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        © 2026 ElectroLearn ⚡ - Aprende electrónica de forma moderna
+    </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

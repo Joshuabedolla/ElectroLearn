@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\proyectosrobotica\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\proyectosrobotica\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
+              "RelativeDocumentMoniker": "ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
+              "RelativeToolTip": "ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAwwAsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-04T05:00:56.261Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

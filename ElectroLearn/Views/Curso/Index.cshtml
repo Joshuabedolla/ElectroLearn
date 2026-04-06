@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Curso>
+
+<h2>Cursos de Robótica</h2>
+<div class="row">
+    @foreach (var curso in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5>@curso.Titulo</h5>
+                    <p>@curso.Descripcion</p>
+                    <a href="/Curso/Detalle/@curso.Id" class="btn btn-primary">Ver Curso</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

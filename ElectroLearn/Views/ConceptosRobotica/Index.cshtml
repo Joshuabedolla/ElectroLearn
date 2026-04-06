@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Conceptos de Robótica";
+}
+
+<div class="conceptos-robotica-container">
+
+    <div class="container py-5">
+
+        <h1 class="mb-4 text-white text-center">Conceptos de Robótica 🤖</h1>
+        <p class="text-white-50 mb-5 text-center">
+            Aprende los fundamentos y temas clave de la robótica de manera visual y práctica.
+        </p>
+
+        <div class="row g-4">
+
+            <!-- Card 1 -->
+            <div class="col-md-4">
+                <a href="https://es.wikipedia.org/wiki/Sensor" target="_blank" class="card-link">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <img src="/images/sensor.jpg" class="card-img-top" alt="Sensores">
+                        <div class="card-body">
+                            <h5 class="card-title">Sensores</h5>
+                            <p class="card-text">
+                                Dispositivos que permiten a los robots percibir su entorno mediante luz, temperatura, distancia y más.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="col-md-4">
+                <a href="https://es.wikipedia.org/wiki/Actuador" target="_blank" class="card-link">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <img src="/images/Actuador.jpg" class="card-img-top" alt="Actuadores">
+                        <div class="card-body">
+                            <h5 class="card-title">Actuadores</h5>
+                            <p class="card-text">
+                                Permiten a los robots interactuar con el mundo: motores, servos, pistones.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="col-md-4">
+                <a href="https://es.wikipedia.org/wiki/Microcontrolador" target="_blank" class="card-link">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <img src="/images/microcontrolador.jpg" class="card-img-top" alt="Microcontroladores">
+                        <div class="card-body">
+                            <h5 class="card-title">Microcontroladores</h5>
+                            <p class="card-text">
+                                Cerebros electrónicos que controlan el funcionamiento del robot mediante programación.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="col-md-4">
+                <a href="#" class="card-link">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <img src="/images/Cinematica.jpg" class="card-img-top" alt="Cinemática">
+                        <div class="card-body">
+                            <h5 class="card-title">Cinemática</h5>
+                            <p class="card-text">
+                                Estudio del movimiento de los robots sin considerar las fuerzas, útil para brazos robóticos.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="col-md-4">
+                <a href="#" class="card-link">
+                    <div class="card h-100 shadow-sm card-hover">
+                        <img src="/images/control.jpg" class="card-img-top" alt="Control">
+                        <div class="card-body">
+                            <h5 class="card-title">Control</h5>
+                            <p class="card-text">
+                                Técnicas para gobernar el comportamiento del robot: desde PID hasta IA.
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<style>
+    .conceptos-robotica-container {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .card-hover {
+        border-radius: 15px;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+    }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card-hover img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+    .card-body {
+        background: rgba(0, 0, 0, 0.6);
+        color: white;
+    }
+
+    .card-title {
+        color: #00c6ff;
+    }
+
+    .card-text {
+        color: #ddd;
+    }
+
+    a.card-link {
+        text-decoration: none;
+    }
+
+        a.card-link:hover {
+            text-decoration: none;
+        }
+</style>

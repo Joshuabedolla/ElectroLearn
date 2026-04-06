@@ -1,0 +1,60 @@
+﻿@model ElectroLearn.Models.Curso
+
+<div class="container mt-5">
+
+    <a href="/Curso/Index" class="btn btn-secondary mb-3">⬅ Volver</a>
+
+    <h2>@Model.Titulo</h2>
+
+    <p>@Model.Descripcion</p>
+
+    @{
+        var rol = Context.Session.GetString("rol");
+    }
+
+    @if (rol == "Admin")
+    {
+        <a href="/Video/Crear?cursoId=@Model.Id" class="btn btn-warning mb-3">
+            ➕ Agregar video
+        </a>
+    }
+
+    <h4 class="mt-4">🎥 Videos del curso</h4>
+
+    @if (Model.Videos != null && Model.Videos.Any())
+    {
+        foreach (var video in Model.Videos)
+        {
+            <div class="mb-4">
+                <h5>
+                    @video.Titulo
+
+                    @* Mostrar badge si el video ya fue visto *@
+                    @if (ViewBag.Vistos != null && ViewBag.Vistos.Contains(video.Id))
+                    {
+                        <span class="badge bg-success">✔ Visto</span>
+                    }
+                </h5>
+
+                <iframe width="100%" height="300"
+                        src="@video.Url"
+                        frameborder="0"
+                        allowfullscreen>
+                </iframe>
+
+                @* Botón para marcar como visto si aún no está marcado *@
+                @if (ViewBag.Vistos == null || !ViewBag.Vistos.Contains(video.Id))
+                {
+                    <a href="/Progreso/MarcarVisto?videoId=@video.Id" class="btn btn-success btn-sm mt-2">
+                        ✔ Marcar como visto
+                    </a>
+                }
+            </div>
+        }
+    }
+    else
+    {
+        <p>No hay videos aún 😢</p>
+    }
+
+</div>
