@@ -1,4 +1,4 @@
-html {
+﻿html {
   font-size: 14px;
 }
 
@@ -34,7 +34,7 @@ body {
             color: #00c6ff !important;
         }
 
-/* Bot�n */
+/* Botón */
 .btn-primary {
     background: linear-gradient(90deg, #00c6ff, #0072ff);
     border: none;
@@ -65,3 +65,59 @@ h1 span {
     -webkit-background-clip: text;
     color: transparent;
 }
+
+.navbar .container,
+.navbar .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    gap: 25px; 
+}
+
+    
+    .navbar-nav .nav-link {
+        display: flex;
+        align-items: center;
+        white-space: nowrap; 
+        font-size: 16px;
+    }
+
+
+.navbar .d-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    display: flex;
+    flex: 1; /* 🔥 ESTO ES LO IMPORTANTE */
+}
+
+.footer {
+    text-align: center;
+    padding: 15px;
+    color: #aaa;
+}
+.form-control {
+    background: #0f172a;
+    border: 1px solid #334155;
+    color: white;
+}
+
+    .form-control:focus {
+        background: #0f172a;
+        color: white;
+        border-color: #00c6ff;
+        box-shadow: none;
+    }

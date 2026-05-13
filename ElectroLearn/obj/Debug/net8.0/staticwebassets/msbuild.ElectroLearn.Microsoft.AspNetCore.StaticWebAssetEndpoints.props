@@ -3,14 +3,14 @@
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/css/site.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5iLTE\u002BdSTIKEsmgq61x9u5Y23SnwVINrc\u002B0m5Aj2LBg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1207"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00225iLTE\u002BdSTIKEsmgq61x9u5Y23SnwVINrc\u002B0m5Aj2LBg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 22:27:01 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sALWk90Vb7yuZtYBrxZGTnnNwxJSygel3sJIkWaJrKk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"2162"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sALWk90Vb7yuZtYBrxZGTnnNwxJSygel3sJIkWaJrKk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 15 Apr 2026 01:35:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/ElectroLearn/css/site.q8q5hi1ezb.css">
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/css/site.s9r9bsbaz6.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"q8q5hi1ezb"},{"Name":"integrity","Value":"sha256-5iLTE\u002BdSTIKEsmgq61x9u5Y23SnwVINrc\u002B0m5Aj2LBg="},{"Name":"label","Value":"_content/ElectroLearn/css/site.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1207"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00225iLTE\u002BdSTIKEsmgq61x9u5Y23SnwVINrc\u002B0m5Aj2LBg=\u0022"},{"Name":"Last-Modified","Value":"Thu, 02 Apr 2026 22:27:01 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"s9r9bsbaz6"},{"Name":"integrity","Value":"sha256-sALWk90Vb7yuZtYBrxZGTnnNwxJSygel3sJIkWaJrKk="},{"Name":"label","Value":"_content/ElectroLearn/css/site.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"2162"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022sALWk90Vb7yuZtYBrxZGTnnNwxJSygel3sJIkWaJrKk=\u0022"},{"Name":"Last-Modified","Value":"Wed, 15 Apr 2026 01:35:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/ElectroLearn.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\ElectroLearn.cwfpntgl05.bundle.scp.css'))</AssetFile>
@@ -36,11 +36,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5430"},{"Name":"Content-Type","Value":"image/x-icon"},{"Name":"ETag","Value":"\u0022Jtxf9L\u002B5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 24 Mar 2026 00:09:27 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador.gii0uofqdt.jfif">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador.jfif'))</AssetFile>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador Output.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador Output.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gii0uofqdt"},{"Name":"integrity","Value":"sha256-uAtW1353zxAJRKOAfG9nXl3z0qO1Tq6HKcHs\u002BIV2nRQ="},{"Name":"label","Value":"_content/ElectroLearn/images/Actuador.jfif"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5781"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022uAtW1353zxAJRKOAfG9nXl3z0qO1Tq6HKcHs\u002BIV2nRQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:32:31 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BYG9UOs3bVV9D7Lt\u002B8gn3i6SZxFs1n9O0zaKkPdy2QQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"62408"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BYG9UOs3bVV9D7Lt\u002B8gn3i6SZxFs1n9O0zaKkPdy2QQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:25:02 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador Output.t3jdgce5gc.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador Output.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"t3jdgce5gc"},{"Name":"integrity","Value":"sha256-\u002BYG9UOs3bVV9D7Lt\u002B8gn3i6SZxFs1n9O0zaKkPdy2QQ="},{"Name":"label","Value":"_content/ElectroLearn/images/Actuador Output.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"62408"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BYG9UOs3bVV9D7Lt\u002B8gn3i6SZxFs1n9O0zaKkPdy2QQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:25:02 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador.gs2m5o3dxp.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador.jpg'))</AssetFile>
@@ -48,17 +54,83 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gs2m5o3dxp"},{"Name":"integrity","Value":"sha256-oKz63WpzR9EanPcYyiC1siwjSsegXdA22zZTiYzQDRI="},{"Name":"label","Value":"_content/ElectroLearn/images/Actuador.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"24314"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022oKz63WpzR9EanPcYyiC1siwjSsegXdA22zZTiYzQDRI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:36:12 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador.jfif">
-      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador.jfif'))</AssetFile>
-      <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uAtW1353zxAJRKOAfG9nXl3z0qO1Tq6HKcHs\u002BIV2nRQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"5781"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022uAtW1353zxAJRKOAfG9nXl3z0qO1Tq6HKcHs\u002BIV2nRQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:32:31 GMT"}]]]></ResponseHeaders>
-    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Actuador.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Actuador.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-oKz63WpzR9EanPcYyiC1siwjSsegXdA22zZTiYzQDRI="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"24314"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022oKz63WpzR9EanPcYyiC1siwjSsegXdA22zZTiYzQDRI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:36:12 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Arduino.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Arduino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-eamjsUfUqKZtCpFRRHdaKqvvV7zlhy8ocIrTcJdUaSg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1308706"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022eamjsUfUqKZtCpFRRHdaKqvvV7zlhy8ocIrTcJdUaSg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:06:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Arduino.x2lnbtafc3.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Arduino.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"x2lnbtafc3"},{"Name":"integrity","Value":"sha256-eamjsUfUqKZtCpFRRHdaKqvvV7zlhy8ocIrTcJdUaSg="},{"Name":"label","Value":"_content/ElectroLearn/images/Arduino.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1308706"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022eamjsUfUqKZtCpFRRHdaKqvvV7zlhy8ocIrTcJdUaSg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:06:06 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/ArduinoIDE.5zhix3szcb.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ArduinoIDE.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5zhix3szcb"},{"Name":"integrity","Value":"sha256-f6fUCSbROkjf7j6SDFr1ynjVA/9mq\u002BxuwgDGFWq4qiU="},{"Name":"label","Value":"_content/ElectroLearn/images/ArduinoIDE.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"31158"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022f6fUCSbROkjf7j6SDFr1ynjVA/9mq\u002BxuwgDGFWq4qiU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:09:03 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/ArduinoIDE.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\ArduinoIDE.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-f6fUCSbROkjf7j6SDFr1ynjVA/9mq\u002BxuwgDGFWq4qiU="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"31158"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022f6fUCSbROkjf7j6SDFr1ynjVA/9mq\u002BxuwgDGFWq4qiU=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:09:03 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Automatizacion y Logica.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Automatizacion y Logica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-e7ZLy2AqUrDFY/\u002B8pFNx3iLjgz8aKJEnBR50Fym0MXg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"95416"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022e7ZLy2AqUrDFY/\u002B8pFNx3iLjgz8aKJEnBR50Fym0MXg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:56:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Automatizacion y Logica.prqs730iky.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Automatizacion y Logica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"prqs730iky"},{"Name":"integrity","Value":"sha256-e7ZLy2AqUrDFY/\u002B8pFNx3iLjgz8aKJEnBR50Fym0MXg="},{"Name":"label","Value":"_content/ElectroLearn/images/Automatizacion y Logica.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"95416"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022e7ZLy2AqUrDFY/\u002B8pFNx3iLjgz8aKJEnBR50Fym0MXg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:56:17 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Automatizacion.0i1yh53emg.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Automatizacion.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"0i1yh53emg"},{"Name":"integrity","Value":"sha256-6C6UBzz29XiOzarMtN900vwZa8BjFYoeFMMHaIM1lbQ="},{"Name":"label","Value":"_content/ElectroLearn/images/Automatizacion.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1568929"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226C6UBzz29XiOzarMtN900vwZa8BjFYoeFMMHaIM1lbQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:49:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Automatizacion.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Automatizacion.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6C6UBzz29XiOzarMtN900vwZa8BjFYoeFMMHaIM1lbQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"1568929"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226C6UBzz29XiOzarMtN900vwZa8BjFYoeFMMHaIM1lbQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:49:57 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/CableUSB.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\CableUSB.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-uaD4zj4qXQTJwfxqJOYr9sOxvvSmAc0sm0neoFl7t9I="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"133835"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022uaD4zj4qXQTJwfxqJOYr9sOxvvSmAc0sm0neoFl7t9I=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:16:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/CableUSB.r34akuazbf.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\CableUSB.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"r34akuazbf"},{"Name":"integrity","Value":"sha256-uaD4zj4qXQTJwfxqJOYr9sOxvvSmAc0sm0neoFl7t9I="},{"Name":"label","Value":"_content/ElectroLearn/images/CableUSB.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"133835"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022uaD4zj4qXQTJwfxqJOYr9sOxvvSmAc0sm0neoFl7t9I=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:16:32 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Cinematica y Dinamica.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Cinematica y Dinamica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sfF6sKPBa1P31IwviWz3Zp5OnXT/DIqYkvJ28ZF8Vxk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"30972"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022sfF6sKPBa1P31IwviWz3Zp5OnXT/DIqYkvJ28ZF8Vxk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:54:59 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Cinematica y Dinamica.voxzdvn8ge.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Cinematica y Dinamica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"voxzdvn8ge"},{"Name":"integrity","Value":"sha256-sfF6sKPBa1P31IwviWz3Zp5OnXT/DIqYkvJ28ZF8Vxk="},{"Name":"label","Value":"_content/ElectroLearn/images/Cinematica y Dinamica.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"30972"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022sfF6sKPBa1P31IwviWz3Zp5OnXT/DIqYkvJ28ZF8Vxk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:54:59 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Cinematica.8ld5rj1xz4.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Cinematica.jpg'))</AssetFile>
@@ -72,6 +144,66 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-9LT1H457rLCrAzwvGBWwKk5VPHTvwfm0qMavSH2Mi38="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"21539"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00229LT1H457rLCrAzwvGBWwKk5VPHTvwfm0qMavSH2Mi38=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:52:12 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Control.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Control.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-gLwJ//O6goVQNuYrSUEZwD2vvppmA5FxOxEgwei7a\u002BY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"90173"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gLwJ//O6goVQNuYrSUEZwD2vvppmA5FxOxEgwei7a\u002BY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:47:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Control.w4leiepu5h.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Control.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"w4leiepu5h"},{"Name":"integrity","Value":"sha256-gLwJ//O6goVQNuYrSUEZwD2vvppmA5FxOxEgwei7a\u002BY="},{"Name":"label","Value":"_content/ElectroLearn/images/Control.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"90173"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022gLwJ//O6goVQNuYrSUEZwD2vvppmA5FxOxEgwei7a\u002BY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:47:37 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Entradas Sensores.cvef7gnsqu.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Entradas Sensores.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"cvef7gnsqu"},{"Name":"integrity","Value":"sha256-\u002BO9bKHfTGu/M4jzshYOa8XMBLlI2qlCYoqU\u002B\u002BeSNl2E="},{"Name":"label","Value":"_content/ElectroLearn/images/Entradas Sensores.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"187615"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BO9bKHfTGu/M4jzshYOa8XMBLlI2qlCYoqU\u002B\u002BeSNl2E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:56:58 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Entradas Sensores.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Entradas Sensores.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-\u002BO9bKHfTGu/M4jzshYOa8XMBLlI2qlCYoqU\u002B\u002BeSNl2E="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"187615"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022\u002BO9bKHfTGu/M4jzshYOa8XMBLlI2qlCYoqU\u002B\u002BeSNl2E=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:56:58 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Estructura del Control.3oojjec7x3.jpeg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Estructura del Control.jpeg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"3oojjec7x3"},{"Name":"integrity","Value":"sha256-XZHAVVcW\u002B1Pe9a98ZKTeAVj0xhZCBnXjEUjbNp16Tps="},{"Name":"label","Value":"_content/ElectroLearn/images/Estructura del Control.jpeg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"63495"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022XZHAVVcW\u002B1Pe9a98ZKTeAVj0xhZCBnXjEUjbNp16Tps=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:19:02 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Estructura del Control.jpeg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Estructura del Control.jpeg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-XZHAVVcW\u002B1Pe9a98ZKTeAVj0xhZCBnXjEUjbNp16Tps="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"63495"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022XZHAVVcW\u002B1Pe9a98ZKTeAVj0xhZCBnXjEUjbNp16Tps=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:19:02 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/IA.4m2w197yzn.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\IA.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"4m2w197yzn"},{"Name":"integrity","Value":"sha256-PCr9I2LOHNVoRvVnMjHxnPqI91SnCCpRxINsVy/xTPw="},{"Name":"label","Value":"_content/ElectroLearn/images/IA.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"137412"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022PCr9I2LOHNVoRvVnMjHxnPqI91SnCCpRxINsVy/xTPw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:22:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/IA.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\IA.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-PCr9I2LOHNVoRvVnMjHxnPqI91SnCCpRxINsVy/xTPw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"137412"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022PCr9I2LOHNVoRvVnMjHxnPqI91SnCCpRxINsVy/xTPw=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:22:53 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Jumpers.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Jumpers.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3\u002BO5T9cwBqe8dTmyoXz6zPKnmGN9Y05yrgahU\u002B4edq8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"123551"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00223\u002BO5T9cwBqe8dTmyoXz6zPKnmGN9Y05yrgahU\u002B4edq8=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:10:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Jumpers.pedhesgoyo.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Jumpers.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pedhesgoyo"},{"Name":"integrity","Value":"sha256-3\u002BO5T9cwBqe8dTmyoXz6zPKnmGN9Y05yrgahU\u002B4edq8="},{"Name":"label","Value":"_content/ElectroLearn/images/Jumpers.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"123551"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00223\u002BO5T9cwBqe8dTmyoXz6zPKnmGN9Y05yrgahU\u002B4edq8=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:10:18 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/microcontrolador.1ric23n3il.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\microcontrolador.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -84,6 +216,30 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-E7jo3EDn7emzBwQThR5iRYPs3Sx/MEt61OUDFww0/Vk="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"34833"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022E7jo3EDn7emzBwQThR5iRYPs3Sx/MEt61OUDFww0/Vk=\u0022"},{"Name":"Last-Modified","Value":"Sat, 04 Apr 2026 20:38:53 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Programacion(IDE de Arduino).gczynt1fiq.png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Programacion(IDE de Arduino).png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gczynt1fiq"},{"Name":"integrity","Value":"sha256-cMKpLFhOOXVyH73kOtXZSy0KZiA4Z/fip7pMmEEkeyQ="},{"Name":"label","Value":"_content/ElectroLearn/images/Programacion(IDE de Arduino).png"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"35287"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022cMKpLFhOOXVyH73kOtXZSy0KZiA4Z/fip7pMmEEkeyQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:03:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Programacion(IDE de Arduino).png">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Programacion(IDE de Arduino).png'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-cMKpLFhOOXVyH73kOtXZSy0KZiA4Z/fip7pMmEEkeyQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"35287"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022cMKpLFhOOXVyH73kOtXZSy0KZiA4Z/fip7pMmEEkeyQ=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 16:03:10 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Programacion,control.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Programacion,control.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-vQRrxMbrZFNp9uhDg1KFEFqyFy20BS02TIkujlsRkYg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"549458"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vQRrxMbrZFNp9uhDg1KFEFqyFy20BS02TIkujlsRkYg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:51:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Programacion,control.tk1n9l84vh.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Programacion,control.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"tk1n9l84vh"},{"Name":"integrity","Value":"sha256-vQRrxMbrZFNp9uhDg1KFEFqyFy20BS02TIkujlsRkYg="},{"Name":"label","Value":"_content/ElectroLearn/images/Programacion,control.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"549458"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022vQRrxMbrZFNp9uhDg1KFEFqyFy20BS02TIkujlsRkYg=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:51:47 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Robotica.grhtyydaag.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Robotica.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -95,6 +251,42 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1Ibd\u002B3Yt3w3xW\u002BpTIySVN1fpgTgEjh9BMswPPlfDeLw="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"23226"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00221Ibd\u002B3Yt3w3xW\u002BpTIySVN1fpgTgEjh9BMswPPlfDeLw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 25 Mar 2026 02:36:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Sensores.il949d5j5y.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Sensores.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"il949d5j5y"},{"Name":"integrity","Value":"sha256-aunEdOU/W8X8HVXfVmPBiUMtTcH8edth1F15OqXS4OM="},{"Name":"label","Value":"_content/ElectroLearn/images/Sensores.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"345262"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022aunEdOU/W8X8HVXfVmPBiUMtTcH8edth1F15OqXS4OM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:02:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/Sensores.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\Sensores.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-aunEdOU/W8X8HVXfVmPBiUMtTcH8edth1F15OqXS4OM="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"345262"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022aunEdOU/W8X8HVXfVmPBiUMtTcH8edth1F15OqXS4OM=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 17:02:26 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/simulacion-y-automatizacion-de-robotica.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\simulacion-y-automatizacion-de-robotica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"631190"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:50:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/images/simulacion-y-automatizacion-de-robotica.wvcv3iny8w.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\simulacion-y-automatizacion-de-robotica.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wvcv3iny8w"},{"Name":"integrity","Value":"sha256-BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo="},{"Name":"label","Value":"_content/ElectroLearn/images/simulacion-y-automatizacion-de-robotica.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"631190"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:50:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/img/1736fa0f-092d-4254-b3af-576c00709107.9zt7j0413n.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\1736fa0f-092d-4254-b3af-576c00709107.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9zt7j0413n"},{"Name":"integrity","Value":"sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="},{"Name":"label","Value":"_content/ElectroLearn/img/1736fa0f-092d-4254-b3af-576c00709107.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"173530"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 25 Apr 2026 02:30:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/img/1736fa0f-092d-4254-b3af-576c00709107.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\1736fa0f-092d-4254-b3af-576c00709107.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"173530"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\u0022"},{"Name":"Last-Modified","Value":"Sat, 25 Apr 2026 02:30:40 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/js/site.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\site.js'))</AssetFile>

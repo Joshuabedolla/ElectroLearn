@@ -9,8 +9,9 @@ namespace ElectroLearn.Models
         [Required(ErrorMessage = "El título es obligatorio")]
         public string Titulo { get; set; }
 
+        // 🎬 SOLO ESTA (YouTube embed)
         [Required(ErrorMessage = "La URL es obligatoria")]
-        public string Url { get; set; }
+        public string YoutubeUrl { get; set; }
 
         [Required(ErrorMessage = "Debes seleccionar un curso")]
         public int CursoId { get; set; }

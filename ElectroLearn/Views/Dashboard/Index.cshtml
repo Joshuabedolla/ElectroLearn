@@ -1,0 +1,195 @@
+﻿@model List<ElectroLearn.Models.Curso>
+
+@{
+    ViewData["Title"] = "Inicio";
+    var cursos = Model ?? new List<ElectroLearn.Models.Curso>();
+}
+
+<style>
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+
+    /* 🔥 BOTÓN IGUAL MIS CURSOS */
+    .toggle-btn {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        z-index: 2000;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background: rgba(2, 6, 23, 0.85);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+        .toggle-btn:hover {
+            background: rgba(0, 198, 255, 0.25);
+            transform: scale(1.08);
+        }
+
+    /* 🔥 SIDEBAR IGUAL */
+    .sidebar {
+        width: 240px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(2, 6, 23, 0.98);
+        padding: 20px;
+        padding-top: 70px;
+        transition: transform 0.35s ease;
+        z-index: 1500;
+    }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h5 {
+            color: #00c6ff;
+            margin-bottom: 20px;
+        }
+
+    /* 🔥 LINKS MODERNOS */
+    .menu a {
+        display: block;
+        padding: 12px 10px;
+        margin-bottom: 6px;
+        color: #cbd5e1;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+        .menu a:hover {
+            background: rgba(0, 198, 255, 0.12);
+            color: #00c6ff;
+            padding-left: 14px;
+        }
+
+    /* 🔥 MAIN */
+    .main {
+        margin-left: 240px;
+        transition: 0.35s ease;
+    }
+
+        .main.full {
+            margin-left: 0;
+        }
+
+    /* 🔥 CARDS */
+    .card-dark {
+        background: rgba(30, 41, 59, 0.9);
+        border-radius: 15px;
+        padding: 20px;
+        color: white;
+        transition: 0.2s;
+    }
+
+        .card-dark:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+    /* 🔥 BOTÓN CERRAR SESIÓN */
+    .logout-link {
+        margin-top: 15px;
+        display: block;
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #ff6b6b;
+        transition: 0.2s;
+    }
+
+        .logout-link:hover {
+            background: rgba(255,0,0,0.15);
+            color: #ff3b3b;
+            padding-left: 14px;
+        }
+</style>
+
+<!-- 🔥 BOTÓN -->
+<button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
+    ☰
+</button>
+
+<!-- 🔥 SIDEBAR -->
+<div id="sidebar" class="sidebar">
+
+    <h5>⚡ ElectroLearn</h5>
+
+    <div class="menu">
+        <a href="/Dashboard">🏠 Inicio</a>
+        <a href="/Dashboard/MisCursos">📚 Mis cursos</a>
+        <a href="/Dashboard/Videos">🎥 Videos</a>
+        <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
+
+        <!-- 🔥 CERRAR SESIÓN -->
+        <a href="/Auth/Logout" class="logout-link">🚪 Cerrar sesión</a>
+    </div>
+
+</div>
+
+<!-- 🔥 CONTENIDO -->
+<div id="mainContent" class="main container mt-4">
+
+    <h2>Bienvenido 👋</h2>
+
+    <div class="row mt-4 g-3">
+
+        <div class="col-md-4">
+            <div class="card-dark text-center">
+                <h6>Cursos</h6>
+                <h2>@cursos.Count</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-dark text-center">
+                <h6>Completados</h6>
+                <h2>2</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-dark text-center">
+                <h6>Progreso</h6>
+                <h2>65%</h2>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("mainContent");
+        const btn = document.getElementById("btnToggle");
+
+        sidebar.classList.toggle("hidden");
+        main.classList.toggle("full");
+
+        btn.innerHTML = sidebar.classList.contains("hidden") ? "☰" : "✖";
+    }
+</script>

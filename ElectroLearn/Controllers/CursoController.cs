@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ElectroLearn.Data;
 using ElectroLearn.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using System.IO;
+using System.Threading.Tasks;
 using System.Linq;
+using System;
 
 namespace ElectroLearn.Controllers
 {
@@ -16,36 +19,92 @@ namespace ElectroLearn.Controllers
             _context = context;
         }
 
-        // ===================== LISTA DE CURSOS =====================
+        // 🔒 SESIÓN
+        private bool UsuarioLogueado()
+        {
+            return !string.IsNullOrEmpty(HttpContext.Session.GetString("usuario"));
+        }
+
+        // 📚 LISTAR CURSOS
         public IActionResult Index()
         {
-            if (HttpContext.Session.GetString("usuario") == null)
-            {
-                return RedirectToAction("Login", "Auth");
-            }
+            var cursos = _context.Cursos
+                .Include(c => c.Videos)
+                .ToList();
 
-            var cursos = _context.Cursos.ToList();
             return View(cursos);
         }
 
-        // ===================== DETALLE =====================
-        public IActionResult Detalle(int id)
+        // 👤 MIS CURSOS
+        public IActionResult MisCursos()
         {
-            if (HttpContext.Session.GetString("usuario") == null)
-            {
+            if (!UsuarioLogueado())
                 return RedirectToAction("Login", "Auth");
-            }
 
+            var cursos = _context.Cursos
+                .Include(c => c.Videos)
+                .ToList();
+
+            return View("Index", cursos);
+        }
+
+        // 📄 DETALLE (🔥 ESTE ES EL MÁS IMPORTANTE)
+        public IActionResult Details(int id)
+        {
             var curso = _context.Cursos
-                .Include(c => c.Videos) // 👈 relación con videos
+                .Include(c => c.Videos)
                 .FirstOrDefault(c => c.Id == id);
 
             if (curso == null)
+                return RedirectToAction(nameof(Index));
+
+            return View(curso); // ✔ ahora coincide con la vista
+        }
+
+        // ➕ CREAR CURSO
+        public IActionResult Create()
+        {
+            if (!UsuarioLogueado())
+                return RedirectToAction("Login", "Auth");
+
+            return View();
+        }
+
+        // 💾 GUARDAR CURSO
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Curso curso, IFormFile imagenFile)
+        {
+            if (!UsuarioLogueado())
+                return RedirectToAction("Login", "Auth");
+
+            ModelState.Remove("ImagenUrl");
+
+            if (!ModelState.IsValid)
+                return View(curso);
+
+            if (imagenFile != null && imagenFile.Length > 0)
             {
-                return NotFound(); // 👈 evita error si no existe
+                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img");
+
+                if (!Directory.Exists(carpeta))
+                    Directory.CreateDirectory(carpeta);
+
+                var nombre = Guid.NewGuid() + Path.GetExtension(imagenFile.FileName);
+                var ruta = Path.Combine(carpeta, nombre);
+
+                using (var stream = new FileStream(ruta, FileMode.Create))
+                {
+                    await imagenFile.CopyToAsync(stream);
+                }
+
+                curso.ImagenUrl = "/img/" + nombre;
             }
 
-            return View(curso);
+            _context.Cursos.Add(curso);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\conceptosrobotica\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\conceptosrobotica\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -15,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\proyectosrobotica\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\controllers\\proyectosroboticacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\controllers\\proyectosroboticacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\auth\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\auth\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\auth\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\auth\\registro.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ConceptosRobotica\\Index.cshtml",
-              "RelativeDocumentMoniker": "ElectroLearn\\Views\\ConceptosRobotica\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ConceptosRobotica\\Index.cshtml",
-              "RelativeToolTip": "ElectroLearn\\Views\\ConceptosRobotica\\Index.cshtml",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAEAAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-04T20:26:12.899Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Registro.cshtml",
-              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Auth\\Registro.cshtml",
-              "RelativeDocumentMoniker": "ElectroLearn\\Views\\Auth\\Registro.cshtml",
-              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Auth\\Registro.cshtml",
-              "RelativeToolTip": "ElectroLearn\\Views\\Auth\\Registro.cshtml",
-              "ViewState": "AgIAAGAAAAAAAAAAAAAAAIIAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-04T05:21:15.782Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProyectosRoboticaController.cs",
-              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\ProyectosRoboticaController.cs",
-              "RelativeDocumentMoniker": "ElectroLearn\\Controllers\\ProyectosRoboticaController.cs",
-              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\ProyectosRoboticaController.cs",
-              "RelativeToolTip": "ElectroLearn\\Controllers\\ProyectosRoboticaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-04T05:05:11.944Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
               "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
               "RelativeToolTip": "ElectroLearn\\Views\\ProyectosRobotica\\Index.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAwwAsAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAH8AAAAAAAAAAADwv4EAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-04T05:00:56.261Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-05-12T00:10:55.395Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "Dashboard.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Auth\\Dashboard.cshtml",
+              "RelativeDocumentMoniker": "ElectroLearn\\Views\\Auth\\Dashboard.cshtml",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Auth\\Dashboard.cshtml",
+              "RelativeToolTip": "ElectroLearn\\Views\\Auth\\Dashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-11T20:27:49.626Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "ElectroLearn\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "ElectroLearn\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAGwAAAAAAAAAAADwv3kAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-10T06:05:43.759Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ElectroLearn\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ElectroLearn\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAHUAAAAAAAAAAAAAAIUAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAGYBAAAAAAAAAAAIwHMBAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-04T02:00:38.962Z",
+              "WhenOpened": "2026-05-10T05:46:15.774Z",
               "EditorCaption": ""
             }
           ]

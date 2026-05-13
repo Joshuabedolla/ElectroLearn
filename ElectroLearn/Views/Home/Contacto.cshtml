@@ -1,0 +1,209 @@
+﻿@{
+    ViewData["Title"] = "Contacto";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        overflow-x: hidden;
+    }
+
+        /* 🌫️ BLUR LAYER ANIMADO */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(0,198,255,0.15), transparent 40%), rgba(0,0,0,0.65);
+            z-index: -1;
+            animation: glowMove 8s infinite alternate;
+        }
+
+    @@keyframes glowMove {
+        0% {
+            filter: blur(0px);
+        }
+
+        100% {
+            filter: blur(2px);
+        }
+    }
+
+    /* 📦 GRID LAYOUT PRO */
+    .contact-wrapper {
+        min-height: 90vh;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+        padding: 50px 20px;
+        align-items: center;
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    /* 💎 GLASS CARD PRO */
+    .glass-card {
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 22px;
+        padding: 30px;
+        backdrop-filter: blur(14px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+        transform: translateY(20px);
+        opacity: 0;
+        animation: fadeUp 0.8s ease forwards;
+        transition: 0.4s;
+    }
+
+        .glass-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+    @@keyframes fadeUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .glass-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 60px rgba(0,198,255,0.25);
+    }
+
+    /* 🏷️ TITULOS */
+    .title {
+        text-align: center;
+        font-weight: 800;
+        color: #00c6ff;
+        letter-spacing: 1px;
+    }
+
+    /* ✏️ INPUTS PRO */
+    .form-control {
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        border-radius: 14px;
+        padding: 12px;
+        transition: 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #00c6ff;
+            box-shadow: 0 0 0 4px rgba(0,198,255,0.15);
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+
+    /* 🔥 BOTÓN MODERNO GLOW */
+    .btn-modern {
+        background: linear-gradient(135deg, #00c6ff, #0072ff);
+        border: none;
+        border-radius: 14px;
+        padding: 12px;
+        font-weight: 600;
+        color: white;
+        transition: 0.3s;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .btn-modern:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0,198,255,0.5);
+        }
+
+    /* 🌐 SOCIAL ITEMS PRO */
+    .social-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.05);
+        transition: 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+        color: white;
+    }
+
+        .social-item:hover {
+            background: rgba(0,198,255,0.25);
+            transform: translateX(6px);
+        }
+
+        .social-item i {
+            font-size: 22px;
+            color: #00c6ff;
+        }
+
+</style>
+
+<div class="contact-wrapper">
+
+    <!-- 📩 FORM CARD -->
+    <div class="glass-card">
+        <h2 class="title">
+            <i class="bi bi-send"></i> Contáctanos
+        </h2>
+
+        <form class="mt-4">
+
+            <div class="mb-3">
+                <label>Nombre</label>
+                <input class="form-control" placeholder="Tu nombre" />
+            </div>
+
+            <div class="mb-3">
+                <label>Correo</label>
+                <input class="form-control" placeholder="correo@ejemplo.com" />
+            </div>
+
+            <div class="mb-3">
+                <label>Mensaje</label>
+                <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje"></textarea>
+            </div>
+
+            <button class="btn btn-modern w-100">
+                ✈ Enviar mensaje
+            </button>
+
+        </form>
+    </div>
+
+    <!-- 🌐 INFO CARD -->
+    <div class="glass-card">
+        <h2 class="title">
+            <i class="bi bi-globe2"></i> Conéctate
+        </h2>
+
+        <p class="text-center mt-3">⚡ ElectroLearn</p>
+        <p class="text-center">📧 contacto@electrolearn.com</p>
+        <p class="text-center">🌎 Puebla, México</p>
+
+        <hr style="border-color: rgba(255,255,255,0.1);" />
+
+        <a class="social-item" href="https://facebook.com" target="_blank">
+            <i class="bi bi-facebook"></i> Facebook
+        </a>
+
+        <a class="social-item" href="https://instagram.com" target="_blank">
+            <i class="bi bi-instagram"></i> Instagram
+        </a>
+
+        <a class="social-item" href="https://www.youtube.com/@ElectroLearn2026" target="_blank">
+            <i class="bi bi-youtube"></i> YouTube
+        </a>
+
+        <a class="social-item" href="https://x.com" target="_blank">
+            <i class="bi bi-twitter-x"></i> Twitter (X)
+        </a>
+
+    </div>
+
+</div>

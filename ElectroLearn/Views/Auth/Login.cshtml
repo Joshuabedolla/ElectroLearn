@@ -5,6 +5,7 @@
 }
 
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,122 +17,205 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), url('/images/Robotica.jpg') no-repeat center;
+            background: url('/images/Robotica.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
-            color: white;
+        }
+
+        /* Overlay oscuro */
+        .overlay {
+            background: rgba(15, 23, 42, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .login-container {
+            position: relative;
+            z-index: 2;
         }
 
         .login-box {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(12px);
             padding: 45px;
             border-radius: 20px;
             width: 370px;
-            transition: 0.3s ease;
+            color: white;
+            box-shadow: 0 10px 40px rgba(0, 198, 255, 0.4);
+            animation: fadeIn 1s ease;
         }
 
-            .login-box:hover {
-                transform: translateY(-5px);
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         .logo {
             font-size: 28px;
             font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .subtitle {
             font-size: 14px;
-            color: #bbb;
+            color: #cbd5f5;
             margin-bottom: 20px;
         }
 
         .form-control {
             border-radius: 12px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.9);
             border: none;
-            color: white;
+            color: #222;
+            height: 45px;
+            transition: 0.3s;
         }
 
             .form-control::placeholder {
-                color: #ccc;
+                color: #777;
             }
 
             .form-control:focus {
-                box-shadow: none;
-                background: rgba(255,255,255,0.15);
+                box-shadow: 0 0 12px rgba(0,198,255,0.8);
+                transform: scale(1.02);
             }
 
         .btn-custom {
-            background: linear-gradient(135deg, #0072ff, #00c6ff);
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
             border: none;
             border-radius: 12px;
             padding: 10px;
             font-weight: 500;
             transition: 0.3s;
+            color: white;
         }
 
             .btn-custom:hover {
-                transform: scale(1.03);
-                opacity: 0.95;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(0,198,255,0.6);
             }
 
         a {
+            color: #38bdf8;
             text-decoration: none;
-            font-size: 14px;
         }
 
             a:hover {
+                color: #0ea5e9;
                 text-decoration: underline;
             }
 
         .error {
             font-size: 13px;
         }
+
+        /* ALERTA MODERNA */
+        .login-alert {
+            background: rgba(15, 23, 42, 0.85);
+            border-left: 4px solid #00c6ff;
+            color: white;
+            padding: 14px 18px;
+            border-radius: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.25);
+            animation: slideDown 0.5s ease;
+        }
+
+            .login-alert .icon {
+                font-size: 20px;
+                color: #00c6ff;
+            }
+
+        @@keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
-    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="overlay"></div>
 
-        <div class="login-box shadow-lg">
+    <div class="login-container d-flex justify-content-center align-items-center vh-100">
+
+        <div class="login-box">
 
             <div class="text-center mb-4">
                 <div class="logo">🤖 ElectroLearn</div>
-                <div class="subtitle">Plataforma de aprendizaje en electrónica</div>
+                <div class="subtitle">Inicia sesión para continuar</div>
             </div>
 
-            <!-- Formulario con asp-for y validaciones -->
-            <form asp-action="Login" method="post" novalidate>
+            @if (TempData["Error"] != null)
+            {
+                <div class="login-alert">
+                    <span class="icon">⚡</span>
+                    <span>@TempData["Error"]</span>
+                </div>
+            }
+
+            <form asp-controller="Auth" asp-action="Login" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
+
                 <div class="mb-3">
-                    <input class="form-control" asp-for="Email" placeholder="Correo electrónico" />
+                    <input class="form-control" asp-for="Email" placeholder="📧 Correo electrónico" />
                     <span class="text-danger" asp-validation-for="Email"></span>
                 </div>
 
                 <div class="mb-3">
-                    <input class="form-control" asp-for="Password" type="password" placeholder="Contraseña" />
+                    <input class="form-control" asp-for="Password" type="password" placeholder="🔒 Contraseña" />
                     <span class="text-danger" asp-validation-for="Password"></span>
                 </div>
 
-                <button class="btn btn-custom w-100" type="submit">Entrar</button>
+                <button class="btn btn-custom w-100" type="submit">
+                    Entrar
+                </button>
+
             </form>
 
             <p class="text-danger mt-3 text-center error">@ViewBag.Error</p>
 
             <div class="text-center mt-3">
-                <a href="/Auth/Registro" style="color: #00c6ff;">Crear cuenta</a>
+                <small>¿No tienes cuenta?</small><br />
+                <a href="/Auth/Registro">Crear cuenta</a>
             </div>
 
         </div>
 
     </div>
 
-    <!-- Scripts para validación Razor -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.13/dist/jquery.validate.unobtrusive.min.js"></script>
 
 </body>
 </html>
+

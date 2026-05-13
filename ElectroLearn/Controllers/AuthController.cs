@@ -3,7 +3,6 @@ using ElectroLearn.Data;
 using ElectroLearn.Models;
 using ElectroLearn.ViewModels;
 using System.Linq;
-using BCrypt.Net;
 using Microsoft.AspNetCore.Http;
 
 namespace ElectroLearn.Controllers
@@ -20,6 +19,12 @@ namespace ElectroLearn.Controllers
         // ===================== LOGIN =====================
         public IActionResult Login()
         {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
+            {
+                TempData["Info"] = "Ya iniciaste sesión.";
+                return RedirectToAction("Dashboard");
+            }
+
             return View();
         }
 
@@ -27,18 +32,19 @@ namespace ElectroLearn.Controllers
         public IActionResult Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
-            {
                 return View(model);
-            }
 
             var user = _context.Usuarios
                 .FirstOrDefault(u => u.Email == model.Email);
 
-            if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
+            if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
             {
-                // ✅ Guardar sesión
+                HttpContext.Session.SetInt32("userId", user.Id);
                 HttpContext.Session.SetString("usuario", user.Nombre);
-                HttpContext.Session.SetString("rol", user.Rol ?? "User"); // 👈 usa "User" consistente
+                HttpContext.Session.SetString("email", user.Email);
+                HttpContext.Session.SetString("rol", user.Rol ?? "Usuario");
+
+                TempData["Success"] = "Bienvenido a ElectroLearn ⚡";
 
                 return RedirectToAction("Dashboard");
             }
@@ -50,54 +56,65 @@ namespace ElectroLearn.Controllers
         // ===================== REGISTRO =====================
         public IActionResult Registro()
         {
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
+            {
+                TempData["Info"] = "Ya iniciaste sesión.";
+                return RedirectToAction("Dashboard");
+            }
+
             return View();
         }
 
         [HttpPost]
         public IActionResult Registro(RegisterViewModel model)
         {
+            if (!ModelState.IsValid)
+                return View(model);
+
             if (_context.Usuarios.Any(u => u.Email == model.Email))
             {
                 ViewBag.Error = "El correo ya está registrado";
                 return View(model);
             }
 
-            if (ModelState.IsValid)
+            var usuario = new Usuario
             {
-                var usuario = new Usuario
-                {
-                    Nombre = model.Nombre,
-                    Email = model.Email,
-                    Password = BCrypt.Net.BCrypt.HashPassword(model.Password),
-                    Rol = "Usuario" // rol por defecto
-                };
+                Nombre = model.Nombre,
+                Email = model.Email,
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.Password),
+                Rol = "Usuario"
+            };
 
-                _context.Usuarios.Add(usuario);
-                _context.SaveChanges();
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
 
-                return RedirectToAction("Login");
-            }
+            TempData["Success"] = "Cuenta creada correctamente";
 
-            return View(model);
+            return RedirectToAction("Login");
         }
 
         // ===================== DASHBOARD =====================
+        [Route("Dashboard")]
         public IActionResult Dashboard()
         {
-            if (string.IsNullOrEmpty(HttpContext.Session.GetString("usuario")))
+            var usuario = HttpContext.Session.GetString("usuario");
+
+            if (string.IsNullOrEmpty(usuario))
             {
-                return RedirectToAction("Login");
+                TempData["Error"] = "Debes iniciar sesión";
+                return RedirectToAction("Login", "Auth");
             }
 
-            ViewBag.Usuario = HttpContext.Session.GetString("usuario");
-            ViewBag.Rol = HttpContext.Session.GetString("rol");
-            return View();
+            var cursos = _context.Cursos.ToList();
+
+            return View(cursos);
         }
 
         // ===================== LOGOUT =====================
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+            TempData["Info"] = "Sesión cerrada correctamente";
             return RedirectToAction("Login");
         }
     }

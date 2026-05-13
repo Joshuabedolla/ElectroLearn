@@ -13,24 +13,88 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Actuador.jfif",
-      "PackagePath": "staticwebassets\\images\\Actuador.jfif"
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Actuador Output.jpg",
+      "PackagePath": "staticwebassets\\images\\Actuador Output.jpg"
     },
     {
       "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Actuador.jpg",
       "PackagePath": "staticwebassets\\images\\Actuador.jpg"
     },
     {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Arduino.jpg",
+      "PackagePath": "staticwebassets\\images\\Arduino.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\ArduinoIDE.jpg",
+      "PackagePath": "staticwebassets\\images\\ArduinoIDE.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Automatizacion y Logica.jpg",
+      "PackagePath": "staticwebassets\\images\\Automatizacion y Logica.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Automatizacion.jpg",
+      "PackagePath": "staticwebassets\\images\\Automatizacion.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\CableUSB.jpg",
+      "PackagePath": "staticwebassets\\images\\CableUSB.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Cinematica y Dinamica.jpg",
+      "PackagePath": "staticwebassets\\images\\Cinematica y Dinamica.jpg"
+    },
+    {
       "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Cinematica.jpg",
       "PackagePath": "staticwebassets\\images\\Cinematica.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Control.jpg",
+      "PackagePath": "staticwebassets\\images\\Control.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Entradas Sensores.jpg",
+      "PackagePath": "staticwebassets\\images\\Entradas Sensores.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Estructura del Control.jpeg",
+      "PackagePath": "staticwebassets\\images\\Estructura del Control.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\IA.jpg",
+      "PackagePath": "staticwebassets\\images\\IA.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Jumpers.jpg",
+      "PackagePath": "staticwebassets\\images\\Jumpers.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Programacion(IDE de Arduino).png",
+      "PackagePath": "staticwebassets\\images\\Programacion(IDE de Arduino).png"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Programacion,control.jpg",
+      "PackagePath": "staticwebassets\\images\\Programacion,control.jpg"
     },
     {
       "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Robotica.jpg",
       "PackagePath": "staticwebassets\\images\\Robotica.jpg"
     },
     {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\Sensores.jpg",
+      "PackagePath": "staticwebassets\\images\\Sensores.jpg"
+    },
+    {
       "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\microcontrolador.jpg",
       "PackagePath": "staticwebassets\\images\\microcontrolador.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\images\\simulacion-y-automatizacion-de-robotica.jpg",
+      "PackagePath": "staticwebassets\\images\\simulacion-y-automatizacion-de-robotica.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\img\\1736fa0f-092d-4254-b3af-576c00709107.jpg",
+      "PackagePath": "staticwebassets\\img\\1736fa0f-092d-4254-b3af-576c00709107.jpg"
     },
     {
       "Id": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\js\\site.js",

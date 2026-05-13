@@ -13,8 +13,9 @@ namespace ElectroLearn.Models
         [Required(ErrorMessage = "La descripción es obligatoria")]
         public string Descripcion { get; set; }
 
-        public string ImagenUrl { get; set; } 
+        public string? ImagenUrl { get; set; }
 
+        // ✅ RELACIÓN CORRECTA
         public List<Video> Videos { get; set; } = new List<Video>();
     }
 }

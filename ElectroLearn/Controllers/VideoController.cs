@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ElectroLearn.Data;
 using ElectroLearn.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Http;
 using System.Linq;
+using System;
 
 namespace ElectroLearn.Controllers
 {
@@ -16,51 +16,155 @@ namespace ElectroLearn.Controllers
             _context = context;
         }
 
-        // 🔐 VALIDAR SI ES ADMIN
         private bool EsAdmin()
         {
             return HttpContext.Session.GetString("rol") == "Admin";
         }
 
-        // ===================== FORMULARIO =====================
-        public IActionResult Crear(int? cursoId)
-        {
-            // 🔒 Solo admin
-            if (!EsAdmin())
-            {
-                return RedirectToAction("Dashboard", "Auth");
-            }
-
-            ViewBag.Cursos = new SelectList(_context.Cursos, "Id", "Titulo", cursoId);
-            return View();
-        }
-
-        // ===================== GUARDAR VIDEO =====================
+        // =========================
+        // 🎬 CREAR VIDEO
+        // =========================
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Crear(Video video)
         {
-            // 🔒 Solo admin
             if (!EsAdmin())
+                return RedirectToAction("Login", "Auth");
+
+            ModelState.Remove("Curso");
+
+            if (video.CursoId == 0)
             {
-                return RedirectToAction("Dashboard", "Auth");
+                TempData["Error"] = "CursoId no recibido";
+                return RedirectToAction("Index", "Curso");
             }
 
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                // 🔥 Convertir URL a embed
-                if (video.Url.Contains("watch?v="))
-                {
-                    video.Url = video.Url.Replace("watch?v=", "embed/");
-                }
+                TempData["Error"] = "Datos inválidos";
+                return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+            }
 
-                _context.Videos.Add(video);
+            // 🔥 FIX REAL
+            video.YoutubeUrl = ConvertirYoutube(video.YoutubeUrl.Trim());
+
+            _context.Videos.Add(video);
+            _context.SaveChanges();
+
+            TempData["Success"] = "Video guardado correctamente";
+
+            return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+        }
+
+        // =========================
+        // ✏️ EDITAR VIDEO
+        // =========================
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Editar(Video video)
+        {
+            if (!EsAdmin())
+                return RedirectToAction("Login", "Auth");
+
+            ModelState.Remove("Curso");
+
+            if (!ModelState.IsValid)
+            {
+                TempData["Error"] = "Datos inválidos";
+                return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+            }
+
+            var existente = _context.Videos.Find(video.Id);
+
+            if (existente == null)
+            {
+                TempData["Error"] = "Video no encontrado";
+                return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+            }
+
+            existente.Titulo = video.Titulo;
+            existente.YoutubeUrl = ConvertirYoutube(video.YoutubeUrl.Trim());
+
+            _context.SaveChanges();
+
+            TempData["Success"] = "Video actualizado";
+
+            return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+        }
+
+        // =========================
+        // 🗑 ELIMINAR VIDEO
+        // =========================
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Eliminar(int id, int cursoId)
+        {
+            if (!EsAdmin())
+                return RedirectToAction("Login", "Auth");
+
+            var video = _context.Videos
+                .FirstOrDefault(v => v.Id == id);
+
+            if (video == null)
+            {
+                TempData["Error"] = "Video no encontrado";
+                return RedirectToAction("Details", "Curso", new { id = cursoId });
+            }
+
+            try
+            {
+                _context.Videos.Remove(video);
                 _context.SaveChanges();
 
-                return RedirectToAction("Detalle", "Curso", new { id = video.CursoId });
+                TempData["Success"] = "Video eliminado";
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
             }
 
-            ViewBag.Cursos = new SelectList(_context.Cursos, "Id", "Titulo", video.CursoId);
-            return View(video);
+            return RedirectToAction("Details", "Curso", new { id = cursoId });
+        }
+
+        // =========================
+        // 🔥 CONVERTIDOR YOUTUBE (FIX TOTAL)
+        // =========================
+        private string ConvertirYoutube(string url)
+        {
+            if (string.IsNullOrWhiteSpace(url))
+                return url;
+
+            try
+            {
+                string videoId = "";
+
+                // 👉 Caso 1: youtube.com/watch?v=
+                if (url.Contains("watch?v="))
+                {
+                    var uri = new Uri(url);
+                    var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
+                    videoId = query["v"];
+                }
+                // 👉 Caso 2: youtu.be/
+                else if (url.Contains("youtu.be/"))
+                {
+                    videoId = url.Split('/').Last().Split('?')[0];
+                }
+                // 👉 Caso 3: ya es embed
+                else if (url.Contains("embed/"))
+                {
+                    return url;
+                }
+
+                if (!string.IsNullOrEmpty(videoId))
+                    return $"https://www.youtube.com/embed/{videoId}";
+
+                return url;
+            }
+            catch
+            {
+                return url;
+            }
         }
     }
 }

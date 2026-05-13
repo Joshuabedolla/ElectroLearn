@@ -82,7 +82,6 @@ C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticweb
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ElectroLearn.props
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ElectroLearn.props
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\ElectroL.F381D38A.Up2Date
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\ElectroLearn.dll
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\refint\ElectroLearn.dll
@@ -171,3 +170,10 @@ C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\ru\Micros
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\ElectroLearn.sourcelink.json
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Bedol\source\repos\ElectroLearn\ElectroLearn\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

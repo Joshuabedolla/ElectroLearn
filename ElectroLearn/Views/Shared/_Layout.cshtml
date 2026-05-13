@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var usuario = HttpContextAccessor.HttpContext?.Session?.GetString("usuario");
+}
+
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="utf-8" />
@@ -7,12 +14,16 @@
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0f172a;
             color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .navbar {
@@ -20,43 +31,228 @@
             backdrop-filter: blur(10px);
         }
 
+        /* 🔥 LOGO MÁS SEPARADO DEL MENÚ */
         .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-weight: 600;
             font-size: 22px;
+            margin-right: 60px;
+            padding-left: 0;
+            white-space: nowrap;
+        }
+
+        .navbar-nav {
+            align-items: center;
+        }
+
+        .navbar-collapse {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* 🔥 LINKS MÁS SEPARADOS DEL LOGO */
+        .navbar-nav.mx-auto {
+            margin-left: 20px !important;
+            margin-right: auto !important;
+            gap: 8px;
+        }
+
+        /* 🔥 MÁS SEPARACIÓN ENTRE CONTACTO Y USUARIO */
+        .navbar-nav.ms-3 {
+            margin-left: 28px !important;
+            gap: 10px;
         }
 
         .nav-link {
             color: #ddd !important;
             transition: 0.3s;
+            padding: 8px 8px !important;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
         }
 
             .nav-link:hover {
                 color: #00c6ff !important;
             }
 
-        .btn-nav {
-            border-radius: 20px;
-            margin-left: 10px;
+        /* 🔥 BOTONES */
+        .auth-btn,
+        .dashboard-btn,
+        .logout-btn {
+            min-width: 125px;
+            height: 48px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .login-btn {
+            border: 2px solid #00c6ff;
+            color: #00c6ff !important;
+            background: transparent;
+        }
+
+            .login-btn:hover {
+                background: #00c6ff;
+                color: white !important;
+                box-shadow: 0 0 18px rgba(0,198,255,0.5);
+            }
+
+        .register-btn {
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: white !important;
+            border: none;
+        }
+
+            .register-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 18px rgba(0,198,255,0.4);
+            }
+
+        .dashboard-btn {
+            background: linear-gradient(135deg, #2563eb, #00c6ff);
+            color: white !important;
+            border: none;
+            box-shadow: 0 4px 14px rgba(0, 198, 255, 0.35);
+        }
+
+            .dashboard-btn:hover {
+                transform: translateY(-2px);
+                background: linear-gradient(135deg, #1d4ed8, #009dff);
+                box-shadow: 0 8px 18px rgba(0, 198, 255, 0.5);
+                color: white !important;
+            }
+
+        .logout-btn {
+            background: linear-gradient(135deg, #ff4b5c, #ff2e63);
+            color: white !important;
+            border: none;
+            box-shadow: 0 4px 14px rgba(255, 46, 99, 0.35);
+        }
+
+            .logout-btn:hover {
+                transform: translateY(-2px);
+                background: linear-gradient(135deg, #ff2e63, #ff1744);
+                box-shadow: 0 8px 18px rgba(255, 46, 99, 0.5);
+                color: white !important;
+            }
+
+        /* 🔥 NOMBRE DE USUARIO */
+        .user-name {
+            color: #00c6ff;
+            font-weight: 600;
+            margin-left: 12px;
+            margin-right: 6px;
+            white-space: nowrap;
+        }
+
+        .main-content {
+            flex: 1;
         }
 
         .footer {
-            background: #020617;
-            padding: 15px;
+            background: rgba(2, 6, 23, 0.95);
             text-align: center;
-            margin-top: 40px;
+            padding: 15px;
             color: #aaa;
+        }
+
+        .toast-custom {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.96);
+            color: white;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border-left: 4px solid #00c6ff;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            z-index: 9999;
+            animation: slideIn 0.4s ease, fadeOut 0.5s ease 3.5s forwards;
+            min-width: 260px;
+            font-weight: 500;
+        }
+
+        @@keyframes slideIn {
+            from {
+                transform: translateX(120%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @@keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+        }
+
+        @@media (max-width: 768px) {
+
+            .navbar-collapse {
+                background: rgba(2,6,23,0.95);
+                padding: 15px;
+                border-radius: 12px;
+                margin-top: 10px;
+            }
+
+            .navbar-nav.mx-auto,
+            .navbar-nav.ms-3 {
+                margin-left: 0 !important;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .auth-btn,
+            .dashboard-btn,
+            .logout-btn {
+                width: 100%;
+            }
+
+            .toast-custom {
+                left: 10px;
+                right: 10px;
+                min-width: auto;
+            }
         }
     </style>
 </head>
 
 <body>
 
+    @if (TempData["Success"] != null || TempData["Error"] != null || TempData["Info"] != null)
+    {
+        <div class="toast-custom">
+            @TempData["Success"]
+            @TempData["Error"]
+            @TempData["Info"]
+        </div>
+    }
+
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
+        <div class="container-fluid px-4">
 
             <a class="navbar-brand" asp-controller="Home" asp-action="Index">
-                ⚡ ElectroLearn
+                <span>⚡</span>
+                <span>ElectroLearn</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -65,36 +261,58 @@
 
             <div class="collapse navbar-collapse" id="navbarContent">
 
-                <!-- IZQUIERDA -->
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav mx-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="Index">Inicio</a>
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            Inicio
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="ConceptosRobotica" asp-action="Index">Conceptos de Robótica</a>
+                        <a class="nav-link" asp-controller="ConceptosRobotica" asp-action="Index">
+                            Conceptos de Robótica
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="ProyectosRobotica" asp-action="Index">Proyectos de Robótica</a>
+                        <a class="nav-link" asp-controller="ProyectosRobotica" asp-action="Index">
+                            Proyectos de Robótica
+                        </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Contacto">
+                            Contacto
+                        </a>
+                    </li>
+
                 </ul>
 
-                <!-- DERECHA -->
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-3">
 
-                    @if (Context.Session.GetString("usuario") != null)
+                    @if (!string.IsNullOrEmpty(usuario))
                     {
                         <li class="nav-item">
-                            <span class="nav-link">👋 @Context.Session.GetString("usuario")</span>
+                            <span class="nav-link user-name">
+                                @usuario
+                            </span>
                         </li>
 
                         <li class="nav-item">
-                            <a class="btn btn-outline-light btn-nav" asp-controller="Auth" asp-action="Dashboard">
+                            <a class="btn dashboard-btn"
+                               asp-controller="Auth"
+                               asp-action="Dashboard">
+                                <i class="bi bi-speedometer2"></i>
                                 Dashboard
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="btn btn-danger btn-nav" asp-controller="Auth" asp-action="Logout">
+                            <a class="btn logout-btn"
+                               asp-controller="Auth"
+                               asp-action="Logout">
+                                <i class="bi bi-box-arrow-right"></i>
                                 Cerrar sesión
                             </a>
                         </li>
@@ -102,25 +320,31 @@
                     else
                     {
                         <li class="nav-item">
-                            <a class="btn btn-outline-info btn-nav" asp-controller="Auth" asp-action="Login">
+                            <a class="btn auth-btn login-btn"
+                               asp-controller="Auth"
+                               asp-action="Login">
                                 Iniciar sesión
                             </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="btn btn-primary btn-nav" asp-controller="Auth" asp-action="Registro">
+                            <a class="btn auth-btn register-btn"
+                               asp-controller="Auth"
+                               asp-action="Registro">
                                 Registrarse
                             </a>
                         </li>
                     }
 
                 </ul>
+
             </div>
+
         </div>
     </nav>
 
     <!-- CONTENIDO -->
-    <div class="container mt-4">
+    <div class="container mt-4 main-content">
         @RenderBody()
     </div>
 
@@ -129,6 +353,21 @@
         © 2026 ElectroLearn ⚡ - Aprende electrónica de forma moderna
     </div>
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        setTimeout(() => {
+
+            const toast = document.querySelector(".toast-custom");
+
+            if (toast) {
+                toast.style.display = "none";
+            }
+
+        }, 3500);
+    </script>
+
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

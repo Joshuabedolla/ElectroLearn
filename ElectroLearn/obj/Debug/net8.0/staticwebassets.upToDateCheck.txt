@@ -1,10 +1,26 @@
 wwwroot\css\site.css
 wwwroot\favicon.ico
-wwwroot\images\Actuador.jfif
+wwwroot\images\Actuador Output.jpg
 wwwroot\images\Actuador.jpg
+wwwroot\images\Arduino.jpg
+wwwroot\images\ArduinoIDE.jpg
+wwwroot\images\Automatizacion y Logica.jpg
+wwwroot\images\Automatizacion.jpg
+wwwroot\images\CableUSB.jpg
+wwwroot\images\Cinematica y Dinamica.jpg
 wwwroot\images\Cinematica.jpg
+wwwroot\images\Control.jpg
+wwwroot\images\Entradas Sensores.jpg
+wwwroot\images\Estructura del Control.jpeg
+wwwroot\images\IA.jpg
+wwwroot\images\Jumpers.jpg
 wwwroot\images\microcontrolador.jpg
+wwwroot\images\Programacion(IDE de Arduino).png
+wwwroot\images\Programacion,control.jpg
 wwwroot\images\Robotica.jpg
+wwwroot\images\Sensores.jpg
+wwwroot\images\simulacion-y-automatizacion-de-robotica.jpg
+wwwroot\img\1736fa0f-092d-4254-b3af-576c00709107.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map
