@@ -2,6 +2,16 @@
 
 @{
     ViewData["Title"] = "Mis Cursos";
+    var usuario = Context.Session.GetString("usuario");
+}
+
+@if (string.IsNullOrEmpty(usuario))
+{
+    <script>
+        window.location.replace("/Auth/Login");
+    </script>
+
+    return;
 }
 
 <style>
@@ -19,7 +29,7 @@
             z-index: -1;
         }
 
-    /* 🔥 BOTÓN TOGGLE (MISMO ESTILO DASHBOARD) */
+    /* ☰ BOTÓN */
     .toggle-btn {
         position: fixed;
         top: 18px;
@@ -44,7 +54,7 @@
             transform: scale(1.08);
         }
 
-    /* 🔥 SIDEBAR */
+    /* 📂 SIDEBAR */
     .sidebar {
         width: 240px;
         height: 100vh;
@@ -67,25 +77,30 @@
             margin-bottom: 20px;
         }
 
-    .menu a {
-        display: block;
-        padding: 12px 10px;
-        margin-bottom: 6px;
-        color: #cbd5e1;
-        text-decoration: none;
-        border-radius: 10px;
-        transition: 0.2s;
+    .menu {
+        height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
     }
 
-        .menu a:hover {
-            background: rgba(0, 198, 255, 0.12);
-            color: #00c6ff;
-            padding-left: 14px;
+        .menu a {
+            display: block;
+            padding: 12px 10px;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.2s;
         }
 
-    /* 🚪 CERRAR SESIÓN */
+            .menu a:hover {
+                background: rgba(0, 198, 255, 0.12);
+                color: #00c6ff;
+                padding-left: 14px;
+            }
+
     .logout-link {
-        margin-top: 15px;
+        margin-top: auto;
         display: block;
         padding: 12px 10px;
         border-radius: 10px;
@@ -100,7 +115,7 @@
             padding-left: 14px;
         }
 
-    /* 🔥 CONTENIDO */
+    /* 📄 MAIN */
     .main {
         margin-left: 240px;
         transition: 0.35s ease;
@@ -110,7 +125,7 @@
             margin-left: 0;
         }
 
-    /* 🔥 CARDS */
+    /* 🎓 CARD CURSO */
     .course-card {
         transition: .2s ease;
         border-radius: 15px;
@@ -128,14 +143,22 @@
         height: 180px;
         object-fit: cover;
     }
+
+    .btn-add-course {
+        font-size: 14px;
+        padding: 6px 14px;
+        border-radius: 8px;
+        white-space: nowrap;
+        margin-right: 120px;
+    }
 </style>
 
-<!-- 🔥 BOTÓN TOGGLE -->
+<!-- ☰ BOTÓN -->
 <button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
     ☰
 </button>
 
-<!-- 🔥 SIDEBAR -->
+<!-- 📂 SIDEBAR -->
 <div id="sidebar" class="sidebar">
 
     <h5>⚡ ElectroLearn</h5>
@@ -146,23 +169,26 @@
         <a href="/Dashboard/Videos">🎥 Videos</a>
         <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
 
-        <!-- 🚪 CERRAR SESIÓN -->
-        <a href="/Auth/Logout" class="logout-link">🚪 Cerrar sesión</a>
+        <a href="/Auth/Logout" class="logout-link">
+            🚪 Cerrar sesión
+        </a>
     </div>
 
 </div>
 
-<!-- 🔥 CONTENIDO -->
+<!-- 📄 MAIN -->
 <div id="mainContent" class="main container py-4">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div>
             <h2 class="fw-bold">📚 Mis Cursos</h2>
-            <p class="text-muted mb-0">Gestiona tus cursos y videos</p>
+            <p class="text-muted mb-0">
+                Gestiona tus cursos y videos
+            </p>
         </div>
 
-        <a class="btn btn-primary btn-lg shadow-sm"
+        <a class="btn btn-primary shadow-sm btn-add-course"
            asp-controller="Curso"
            asp-action="Create">
             ➕ Agregar Curso
@@ -188,16 +214,24 @@
 
                         @if (!string.IsNullOrEmpty(curso.ImagenUrl))
                         {
-                            <img src="@curso.ImagenUrl" class="card-img-top course-img" />
+                            <img src="@curso.ImagenUrl"
+                                 class="card-img-top course-img" />
                         }
 
                         <div class="card-body">
-                            <h5 class="fw-bold">@curso.Titulo</h5>
-                            <p class="text-muted small">@curso.Descripcion</p>
+
+                            <h5 class="fw-bold">
+                                @curso.Titulo
+                            </h5>
+
+                            <p class="text-muted small">
+                                @curso.Descripcion
+                            </p>
 
                             <span class="badge bg-info text-dark">
                                 🎥 @(curso.Videos?.Count ?? 0) videos
                             </span>
+
                         </div>
 
                         <div class="card-footer d-flex justify-content-between">
@@ -229,6 +263,7 @@
 
 <script>
     function toggleSidebar() {
+
         const sidebar = document.getElementById("sidebar");
         const main = document.getElementById("mainContent");
         const btn = document.getElementById("btnToggle");
@@ -236,6 +271,9 @@
         sidebar.classList.toggle("hidden");
         main.classList.toggle("full");
 
-        btn.innerHTML = sidebar.classList.contains("hidden") ? "☰" : "✖";
+        btn.innerHTML =
+            sidebar.classList.contains("hidden")
+                ? "☰"
+                : "✖";
     }
 </script>

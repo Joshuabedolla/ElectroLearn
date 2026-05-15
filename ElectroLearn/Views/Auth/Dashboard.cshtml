@@ -87,11 +87,13 @@
             color: #00c6ff;
             font-weight: bold;
             margin-bottom: 15px;
+            font-size: 18px;
         }
 
         .user {
             color: #cbd5e1;
             margin-bottom: 20px;
+            font-size: 15px;
         }
 
         .menu a {
@@ -102,6 +104,7 @@
             text-decoration: none;
             border-radius: 10px;
             transition: 0.2s;
+            font-size: 15px;
         }
 
             .menu a:hover {
@@ -116,6 +119,7 @@
             color: #ff6b6b;
             text-decoration: none;
             font-weight: bold;
+            font-size: 15px;
         }
 
             .logout:hover {
@@ -132,11 +136,24 @@
                 margin-left: 0;
             }
 
+            /* 🔥 BIENVENIDO */
+            .main h2 {
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 25px;
+            }
+
+        /* 🔥 CARDS */
         .card-course {
             background: rgba(30, 41, 59, 0.9);
             border-radius: 15px;
             padding: 20px;
             transition: 0.2s;
+            height: 100%;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
             .card-course:hover {
@@ -144,11 +161,34 @@
                 box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             }
 
+            /* 🔥 MISMO TAMAÑO DE LETRA */
+            .card-course h4 {
+                font-size: 15px;
+                font-weight: 600;
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .card-course p {
+                font-size: 15px;
+                color: #cbd5e1 !important;
+                flex-grow: 1;
+            }
+
         .btn-custom {
             background: linear-gradient(90deg, #00c6ff, #0072ff);
             border: none;
             color: white;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 10px;
+            padding: 10px;
         }
+
+            .btn-custom:hover {
+                box-shadow: 0 0 12px rgba(0,198,255,0.5);
+                color: white;
+            }
 
         .alert-custom {
             position: fixed;
@@ -226,7 +266,7 @@
 
     <div id="mainContent" class="main">
 
-        <h2 class="fw-bold">Bienvenido, @usuario 👋</h2>
+        <h2>Bienvenido, @usuario 👋</h2>
 
         <div class="row mt-4">
 
@@ -239,7 +279,8 @@
                         <div class="card-course">
 
                             <h4>@curso.Titulo</h4>
-                            <p class="text-muted">@curso.Descripcion</p>
+
+                            <p>@curso.Descripcion</p>
 
                             <a class="btn btn-custom w-100"
                                href="/Curso/Details/@curso.Id">

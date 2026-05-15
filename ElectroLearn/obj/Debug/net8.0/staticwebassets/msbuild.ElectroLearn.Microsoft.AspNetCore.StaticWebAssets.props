@@ -414,6 +414,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\images\simulacion-y-automatizacion-de-robotica.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ElectroLearn</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ElectroLearn</BasePath>
+      <RelativePath>img/0889faea-5129-43fe-bf83-5890f7c60d0f.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>9zt7j0413n</Fingerprint>
+      <Integrity>hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\1736fa0f-092d-4254-b3af-576c00709107.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>ElectroLearn</SourceId>

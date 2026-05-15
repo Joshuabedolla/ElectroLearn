@@ -19,13 +19,20 @@ namespace ElectroLearn.Controllers
             _context = context;
         }
 
-        // 🔒 SESIÓN
+        // 🔒 VALIDAR SESIÓN
         private bool UsuarioLogueado()
         {
             return !string.IsNullOrEmpty(HttpContext.Session.GetString("usuario"));
         }
 
-        // 📚 LISTAR CURSOS
+        // 🚨 REDIRECCIÓN LOGIN
+        private IActionResult RequiereLogin()
+        {
+            TempData["Error"] = "Debes iniciar sesión";
+            return RedirectToAction("Login", "Auth");
+        }
+
+        // 📚 LISTAR CURSOS PÚBLICOS
         public IActionResult Index()
         {
             var cursos = _context.Cursos
@@ -35,20 +42,23 @@ namespace ElectroLearn.Controllers
             return View(cursos);
         }
 
-        // 👤 MIS CURSOS
+        // 👤 MIS CURSOS (SOLO DEL USUARIO)
         public IActionResult MisCursos()
         {
             if (!UsuarioLogueado())
-                return RedirectToAction("Login", "Auth");
+                return RequiereLogin();
+
+            int? userId = HttpContext.Session.GetInt32("userId");
 
             var cursos = _context.Cursos
                 .Include(c => c.Videos)
+                .Where(c => c.UsuarioId == userId)
                 .ToList();
 
             return View("Index", cursos);
         }
 
-        // 📄 DETALLE (🔥 ESTE ES EL MÁS IMPORTANTE)
+        // 📄 DETALLE
         public IActionResult Details(int id)
         {
             var curso = _context.Cursos
@@ -58,14 +68,14 @@ namespace ElectroLearn.Controllers
             if (curso == null)
                 return RedirectToAction(nameof(Index));
 
-            return View(curso); // ✔ ahora coincide con la vista
+            return View(curso);
         }
 
         // ➕ CREAR CURSO
         public IActionResult Create()
         {
             if (!UsuarioLogueado())
-                return RedirectToAction("Login", "Auth");
+                return RequiereLogin();
 
             return View();
         }
@@ -76,21 +86,32 @@ namespace ElectroLearn.Controllers
         public async Task<IActionResult> Create(Curso curso, IFormFile imagenFile)
         {
             if (!UsuarioLogueado())
-                return RedirectToAction("Login", "Auth");
+                return RequiereLogin();
+
+            int? userId = HttpContext.Session.GetInt32("userId");
+
+            if (userId == null)
+                return RequiereLogin();
 
             ModelState.Remove("ImagenUrl");
 
             if (!ModelState.IsValid)
                 return View(curso);
 
+            // 🖼️ SUBIR IMAGEN
             if (imagenFile != null && imagenFile.Length > 0)
             {
-                var carpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img");
+                var carpeta = Path.Combine(
+                    Directory.GetCurrentDirectory(),
+                    "wwwroot/img"
+                );
 
                 if (!Directory.Exists(carpeta))
                     Directory.CreateDirectory(carpeta);
 
-                var nombre = Guid.NewGuid() + Path.GetExtension(imagenFile.FileName);
+                var nombre = Guid.NewGuid() +
+                             Path.GetExtension(imagenFile.FileName);
+
                 var ruta = Path.Combine(carpeta, nombre);
 
                 using (var stream = new FileStream(ruta, FileMode.Create))
@@ -101,10 +122,14 @@ namespace ElectroLearn.Controllers
                 curso.ImagenUrl = "/img/" + nombre;
             }
 
+            // 🔒 ASIGNAR CURSO AL USUARIO
+            curso.UsuarioId = userId.Value;
+
             _context.Cursos.Add(curso);
+
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(MisCursos));
         }
     }
 }

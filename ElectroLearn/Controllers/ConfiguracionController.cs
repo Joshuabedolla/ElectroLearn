@@ -21,7 +21,10 @@ namespace ElectroLearn.Controllers
             int? userId = HttpContext.Session.GetInt32("userId");
 
             if (userId == null)
+            {
+                TempData["Error"] = "Debes iniciar sesión";
                 return RedirectToAction("Login", "Auth");
+            }
 
             var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == userId);
 
@@ -45,7 +48,10 @@ namespace ElectroLearn.Controllers
             int? userId = HttpContext.Session.GetInt32("userId");
 
             if (userId == null)
+            {
+                TempData["Error"] = "Debes iniciar sesión";
                 return RedirectToAction("Login", "Auth");
+            }
 
             var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == userId);
 
@@ -68,14 +74,16 @@ namespace ElectroLearn.Controllers
             int? userId = HttpContext.Session.GetInt32("userId");
 
             if (userId == null)
+            {
+                TempData["Error"] = "Debes iniciar sesión";
                 return RedirectToAction("Login", "Auth");
+            }
 
             var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == userId);
 
             if (usuario == null)
                 return NotFound();
 
-            // 🔴 validar campos
             if (string.IsNullOrWhiteSpace(model.PasswordActual) ||
                 string.IsNullOrWhiteSpace(model.NuevaPassword))
             {
@@ -83,21 +91,18 @@ namespace ElectroLearn.Controllers
                 return RedirectToAction("Index");
             }
 
-            // 🔐 validar password actual
             if (!BCrypt.Net.BCrypt.Verify(model.PasswordActual, usuario.PasswordHash))
             {
                 TempData["Error"] = "Contraseña actual incorrecta";
                 return RedirectToAction("Index");
             }
 
-            // 🔐 validar confirmación
             if (model.NuevaPassword != model.ConfirmarPassword)
             {
                 TempData["Error"] = "Las contraseñas no coinciden";
                 return RedirectToAction("Index");
             }
 
-            // 🔐 guardar nueva contraseña
             usuario.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.NuevaPassword);
 
             _context.SaveChanges();

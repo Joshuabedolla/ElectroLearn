@@ -17,5 +17,6 @@ namespace ElectroLearn.Models
         public int CursoId { get; set; }
 
         public Curso Curso { get; set; }
+        public int UsuarioId { get; set; }
     }
 }

@@ -2,6 +2,61 @@
 
 @{
     ViewData["Title"] = "Configuración";
+    var usuario = Context.Session.GetString("usuario");
+}
+
+@if (string.IsNullOrEmpty(usuario))
+{
+    <style>
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            backdrop-filter: blur(6px);
+        }
+
+        .login-message {
+            background: rgba(15, 23, 42, 0.96);
+            padding: 25px 35px;
+            border-radius: 18px;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            border-left: 5px solid #ff3b3b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: zoomIn .3s ease;
+        }
+
+        @@keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <div class="login-overlay">
+        <div class="login-message">
+            🔒 Debes iniciar sesión
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.replace("/Auth/Login");
+        }, 800);
+    </script>
+
+    return;
 }
 
 <style>
@@ -19,7 +74,6 @@
             z-index: -1;
         }
 
-    /* 🔥 BOTÓN TOGGLE */
     .toggle-btn {
         position: fixed;
         top: 18px;
@@ -44,7 +98,6 @@
             transform: scale(1.08);
         }
 
-    /* 🔥 SIDEBAR */
     .sidebar {
         width: 240px;
         height: 100vh;
@@ -83,7 +136,6 @@
             padding-left: 14px;
         }
 
-    /* 🚪 CERRAR SESIÓN */
     .logout {
         margin-top: 15px;
         display: block;
@@ -100,17 +152,18 @@
             padding-left: 14px;
         }
 
-    /* 🔥 MAIN */
     .main {
         margin-left: 240px;
+        width: calc(100% - 240px);
+        padding: 20px;
         transition: 0.35s ease;
     }
 
         .main.full {
             margin-left: 0;
+            width: 100%;
         }
 
-    /* 🔥 CONFIG CARD MEJORADA */
     .config-card {
         background: rgba(30, 41, 59, 0.85);
         border-radius: 18px;
@@ -118,19 +171,6 @@
         box-shadow: 0 15px 35px rgba(0,0,0,0.5);
         backdrop-filter: blur(10px);
         border: 1px solid rgba(255,255,255,0.08);
-        animation: fadeIn 0.4s ease-in-out;
-    }
-
-    @@keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
     }
 
     .config-title {
@@ -152,56 +192,49 @@
         color: white;
         border-radius: 10px;
         padding: 10px;
-        transition: 0.2s;
     }
 
         .form-control:focus {
-            background: rgba(15, 23, 42, 0.9);
             border-color: #00c6ff;
             box-shadow: 0 0 10px rgba(0,198,255,0.3);
             color: white;
+            background: rgba(15, 23, 42, 0.9);
         }
 
     .btn-save {
         background: linear-gradient(90deg, #00c6ff, #0072ff);
         border: none;
         border-radius: 10px;
-        transition: 0.2s;
     }
-
-        .btn-save:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 12px rgba(0,198,255,0.5);
-        }
 
     .btn-pass {
         background: linear-gradient(90deg, #ff416c, #ff4b2b);
         border: none;
         border-radius: 10px;
-        transition: 0.2s;
     }
 
+        .btn-save:hover,
         .btn-pass:hover {
-            transform: scale(1.03);
-            box-shadow: 0 0 12px rgba(255,75,43,0.5);
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(0,198,255,0.4);
         }
+
+    .alert {
+        border-radius: 10px;
+    }
 
     hr {
         border-color: rgba(255,255,255,0.1);
         margin: 25px 0;
     }
-
-    .alert {
-        border-radius: 10px;
-    }
 </style>
 
-<!-- 🔥 BOTÓN -->
+<!-- ☰ BOTÓN -->
 <button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
     ☰
 </button>
 
-<!-- 🔥 SIDEBAR -->
+<!-- 📂 SIDEBAR -->
 <div id="sidebar" class="sidebar">
 
     <h5>⚡ ElectroLearn</h5>
@@ -212,29 +245,37 @@
         <a href="/Dashboard/Videos">🎥 Videos</a>
         <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
 
-        <!-- 🚪 CERRAR SESIÓN -->
-        <a href="/Auth/Logout" class="logout">🚪 Cerrar sesión</a>
+        <a href="/Auth/Logout" class="logout">
+            🚪 Cerrar sesión
+        </a>
     </div>
 
 </div>
 
-<!-- 🔥 CONTENIDO -->
-<div id="mainContent" class="main container py-4">
+<!-- 📄 MAIN -->
+<div id="mainContent" class="main">
 
     <div class="config-card">
 
-        <h3 class="config-title">⚙️ Configuración</h3>
+        <h3 class="config-title">
+            ⚙️ Configuración
+        </h3>
 
         @if (TempData["Success"] != null)
         {
-            <div class="alert alert-success">@TempData["Success"]</div>
+            <div class="alert alert-success">
+                @TempData["Success"]
+            </div>
         }
 
         @if (TempData["Error"] != null)
         {
-            <div class="alert alert-danger">@TempData["Error"]</div>
+            <div class="alert alert-danger">
+                @TempData["Error"]
+            </div>
         }
 
+        <!-- 👤 PERFIL -->
         <form asp-action="GuardarPerfil" method="post">
 
             <label>Nombre</label>
@@ -243,7 +284,8 @@
             <label>Email</label>
             <input asp-for="Email" class="form-control" />
 
-            <button type="submit" class="btn btn-save w-100 mt-3 text-white">
+            <button type="submit"
+                    class="btn btn-save w-100 mt-3 text-white">
                 Guardar cambios
             </button>
 
@@ -251,18 +293,26 @@
 
         <hr />
 
+        <!-- 🔐 PASSWORD -->
         <form asp-action="CambiarPassword" method="post">
 
             <label>Contraseña actual</label>
-            <input asp-for="PasswordActual" type="password" class="form-control" />
+            <input asp-for="PasswordActual"
+                   type="password"
+                   class="form-control" />
 
             <label>Nueva contraseña</label>
-            <input asp-for="NuevaPassword" type="password" class="form-control" />
+            <input asp-for="NuevaPassword"
+                   type="password"
+                   class="form-control" />
 
             <label>Confirmar contraseña</label>
-            <input asp-for="ConfirmarPassword" type="password" class="form-control" />
+            <input asp-for="ConfirmarPassword"
+                   type="password"
+                   class="form-control" />
 
-            <button type="submit" class="btn btn-pass w-100 mt-3 text-white">
+            <button type="submit"
+                    class="btn btn-pass w-100 mt-3 text-white">
                 Cambiar contraseña
             </button>
 
@@ -274,6 +324,7 @@
 
 <script>
     function toggleSidebar() {
+
         const sidebar = document.getElementById("sidebar");
         const main = document.getElementById("mainContent");
         const btn = document.getElementById("btnToggle");
@@ -281,6 +332,9 @@
         sidebar.classList.toggle("hidden");
         main.classList.toggle("full");
 
-        btn.innerHTML = sidebar.classList.contains("hidden") ? "☰" : "✖";
+        btn.innerHTML =
+            sidebar.classList.contains("hidden")
+                ? "☰"
+                : "✖";
     }
 </script>

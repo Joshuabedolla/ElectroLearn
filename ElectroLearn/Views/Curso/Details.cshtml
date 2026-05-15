@@ -97,13 +97,17 @@
             padding-left: 14px;
         }
 
+    /* 🔥 AQUÍ ESTÁ EL CAMBIO */
     .main {
         margin-left: 240px;
+        width: calc(100% - 240px);
+        padding-right: 0;
         transition: 0.35s ease;
     }
 
         .main.full {
             margin-left: 0;
+            width: 100%;
         }
 
     .curso-header {
@@ -144,6 +148,13 @@
             box-shadow: 0 0 10px #00c6ff;
             transform: scale(1.05);
         }
+
+    /* 🔥 CONTENIDO HASTA CERRAR SESIÓN */
+    .content-wrapper {
+        width: 100%;
+        max-width: 100%;
+        padding-right: 15px;
+    }
 </style>
 
 <button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
@@ -165,226 +176,99 @@
 
 </div>
 
-<div id="mainContent" class="main container mt-4">
+<div id="mainContent" class="main mt-4">
 
-    <a asp-action="Index" class="btn btn-secondary mb-3">
-        ⬅ Volver
-    </a>
+    <div class="content-wrapper">
 
-    <div class="curso-header">
-        <h2>📘 @Model.Titulo</h2>
-        <p>@Model.Descripcion</p>
+        <a asp-action="Index" class="btn btn-secondary mb-3">
+            ⬅ Volver
+        </a>
 
-        <span class="badge bg-info text-dark">
-            🎥 @(Model.Videos?.Count ?? 0) videos
-        </span>
-    </div>
+        <div class="curso-header">
+            <h2>📘 @Model.Titulo</h2>
+            <p>@Model.Descripcion</p>
 
-    @if (Context.Session.GetString("rol") == "Admin")
-    {
-        <button class="btn btn-glow mb-3"
-                data-bs-toggle="modal"
-                data-bs-target="#modalVideo">
-            ➕ Agregar Video
-        </button>
-    }
+            <span class="badge bg-info text-dark">
+                🎥 @(Model.Videos?.Count ?? 0) videos
+            </span>
+        </div>
 
-    @if (Model.Videos != null && Model.Videos.Any())
-    {
-        <div class="row g-4">
+        @if (Context.Session.GetString("rol") == "Admin")
+        {
+            <button class="btn btn-glow mb-3"
+                    data-bs-toggle="modal"
+                    data-bs-target="#modalVideo">
+                ➕ Agregar Video
+            </button>
+        }
 
-            @foreach (var video in Model.Videos)
-            {
-                <div class="col-md-6">
+        @if (Model.Videos != null && Model.Videos.Any())
+        {
+            <div class="row g-4">
 
-                    <div class="video-card">
+                @foreach (var video in Model.Videos)
+                {
+                    <div class="col-md-6">
 
-                        <h5>@video.Titulo</h5>
+                        <div class="video-card">
 
-                        <iframe width="100%" height="250"
-                                src="@video.YoutubeUrl"
-                                allowfullscreen>
-                        </iframe>
+                            <h5>@video.Titulo</h5>
 
-                        @if (Context.Session.GetString("rol") == "Admin")
-                        {
-                            <div class="mt-3 d-flex gap-2">
+                            <iframe width="100%" height="250"
+                                    src="@video.YoutubeUrl"
+                                    allowfullscreen>
+                            </iframe>
 
-                                <button type="button"
-                                        class="btn btn-glow btn-sm w-100"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#modalEditVideo"
-                                        onclick="setEdit(@video.Id,
-                                        '@Html.Raw(video.Titulo.Replace("'", "\\'"))',
-                                        '@video.YoutubeUrl')">
-                                    ✏ Editar
-                                </button>
+                            @if (Context.Session.GetString("rol") == "Admin")
+                            {
+                                <div class="mt-3 d-flex gap-2">
 
-                                <form asp-controller="Video"
-                                      asp-action="Eliminar"
-                                      method="post"
-                                      class="w-100">
-
-                                    @Html.AntiForgeryToken()
-
-                                    <input type="hidden" name="id" value="@video.Id" />
-                                    <input type="hidden" name="cursoId" value="@Model.Id" />
-
-                                    <button type="submit"
-                                            class="btn btn-glow btn-sm w-100">
-                                        🗑 Eliminar
+                                    <button type="button"
+                                            class="btn btn-glow btn-sm w-100"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalEditVideo"
+                                            onclick="setEdit(@video.Id,
+                                            '@Html.Raw(video.Titulo.Replace("'", "\\'"))',
+                                            '@video.YoutubeUrl')">
+                                        ✏ Editar
                                     </button>
 
-                                </form>
+                                    <form asp-controller="Video"
+                                          asp-action="Eliminar"
+                                          method="post"
+                                          class="w-100">
 
-                            </div>
-                        }
+                                        @Html.AntiForgeryToken()
+
+                                        <input type="hidden" name="id" value="@video.Id" />
+                                        <input type="hidden" name="cursoId" value="@Model.Id" />
+
+                                        <button type="submit"
+                                                class="btn btn-glow btn-sm w-100">
+                                            🗑 Eliminar
+                                        </button>
+
+                                    </form>
+
+                                </div>
+                            }
+
+                        </div>
 
                     </div>
+                }
 
-                </div>
-            }
-
-        </div>
-    }
-    else
-    {
-        <div class="text-center mt-5">
-            <h4>Este curso aún no tiene videos 😢</h4>
-        </div>
-    }
-
-</div>
-
-<!-- MODAL AGREGAR VIDEO -->
-<div class="modal fade" id="modalVideo" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark text-white">
-
-            <div class="modal-header border-secondary">
-                <h5 class="modal-title">➕ Agregar Video</h5>
-
-                <button type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="modal">
-                </button>
             </div>
-
-            <form asp-controller="Video" asp-action="Crear" method="post">
-
-                @Html.AntiForgeryToken()
-
-                <div class="modal-body">
-
-                    <input type="hidden" name="CursoId" value="@Model.Id" />
-
-                    <div class="mb-3">
-                        <label class="form-label">Título</label>
-
-                        <input type="text"
-                               name="Titulo"
-                               class="form-control"
-                               required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">URL de YouTube</label>
-
-                        <input type="text"
-                               name="YoutubeUrl"
-                               class="form-control"
-                               required />
-                    </div>
-
-                </div>
-
-                <div class="modal-footer border-secondary">
-
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-
-                    <button type="submit" class="btn btn-glow">
-                        Guardar
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-    </div>
-</div>
-
-<!-- MODAL EDITAR VIDEO -->
-<div class="modal fade" id="modalEditVideo" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content bg-dark text-white">
-
-            <div class="modal-header border-secondary">
-                <h5 class="modal-title">✏ Editar Video</h5>
-
-                <button type="button"
-                        class="btn-close btn-close-white"
-                        data-bs-dismiss="modal">
-                </button>
+        }
+        else
+        {
+            <div class="text-center mt-5">
+                <h4>Este curso aún no tiene videos 😢</h4>
             </div>
+        }
 
-            <form asp-controller="Video"
-                  asp-action="Editar"
-                  method="post">
-
-                @Html.AntiForgeryToken()
-
-                <div class="modal-body">
-
-                    <input type="hidden"
-                           id="editId"
-                           name="Id" />
-
-                    <div class="mb-3">
-                        <label class="form-label">Título</label>
-
-                        <input type="text"
-                               id="editTitulo"
-                               name="Titulo"
-                               class="form-control"
-                               required />
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">URL de YouTube</label>
-
-                        <input type="text"
-                               id="editUrl"
-                               name="YoutubeUrl"
-                               class="form-control"
-                               required />
-                    </div>
-
-                </div>
-
-                <div class="modal-footer border-secondary">
-
-                    <button type="button"
-                            class="btn btn-secondary"
-                            data-bs-dismiss="modal">
-                        Cancelar
-                    </button>
-
-                    <button type="submit"
-                            class="btn btn-glow">
-                        Guardar cambios
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
     </div>
+
 </div>
 
 <script>

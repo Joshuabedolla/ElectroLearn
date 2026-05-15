@@ -31,7 +31,6 @@
             backdrop-filter: blur(10px);
         }
 
-        /* 🔥 LOGO MÁS SEPARADO DEL MENÚ */
         .navbar-brand {
             display: flex;
             align-items: center;
@@ -53,14 +52,12 @@
             align-items: center;
         }
 
-        /* 🔥 LINKS MÁS SEPARADOS DEL LOGO */
         .navbar-nav.mx-auto {
             margin-left: 20px !important;
             margin-right: auto !important;
             gap: 8px;
         }
 
-        /* 🔥 MÁS SEPARACIÓN ENTRE CONTACTO Y USUARIO */
         .navbar-nav.ms-3 {
             margin-left: 28px !important;
             gap: 10px;
@@ -80,7 +77,6 @@
                 color: #00c6ff !important;
             }
 
-        /* 🔥 BOTONES */
         .auth-btn,
         .dashboard-btn,
         .logout-btn {
@@ -149,7 +145,6 @@
                 color: white !important;
             }
 
-        /* 🔥 NOMBRE DE USUARIO */
         .user-name {
             color: #00c6ff;
             font-weight: 600;
@@ -169,20 +164,23 @@
             color: #aaa;
         }
 
+        /* 🔥 TOAST MEJORADO */
         .toast-custom {
             position: fixed;
-            top: 90px;
-            right: 20px;
+            top: 100px;
+            right: 25px;
             background: rgba(15, 23, 42, 0.96);
             color: white;
-            padding: 14px 18px;
-            border-radius: 14px;
+            padding: 16px 22px;
+            border-radius: 16px;
             border-left: 4px solid #00c6ff;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.45);
             z-index: 9999;
             animation: slideIn 0.4s ease, fadeOut 0.5s ease 3.5s forwards;
-            min-width: 260px;
+            min-width: 320px;
+            max-width: 420px;
             font-weight: 500;
+            backdrop-filter: blur(10px);
         }
 
         @@keyframes slideIn {
@@ -237,12 +235,26 @@
 
 <body>
 
-    @if (TempData["Success"] != null || TempData["Error"] != null || TempData["Info"] != null)
+    @if (TempData["Success"] != null)
     {
         <div class="toast-custom">
-            @TempData["Success"]
-            @TempData["Error"]
-            @TempData["Info"]
+            ✅ @TempData["Success"]
+        </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="toast-custom"
+             style="border-left:4px solid #ff4b5c;">
+            ❌ @TempData["Error"]
+        </div>
+    }
+
+    @if (TempData["Info"] != null)
+    {
+        <div class="toast-custom"
+             style="border-left:4px solid #facc15;">
+            ⚡ @TempData["Info"]
         </div>
     }
 
@@ -358,11 +370,11 @@
     <script>
         setTimeout(() => {
 
-            const toast = document.querySelector(".toast-custom");
+            const toasts = document.querySelectorAll(".toast-custom");
 
-            if (toast) {
+            toasts.forEach(toast => {
                 toast.style.display = "none";
-            }
+            });
 
         }, 3500);
     </script>

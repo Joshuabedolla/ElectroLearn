@@ -2,6 +2,16 @@
 
 @{
     ViewData["Title"] = "Mis Cursos";
+    var usuario = Context.Session.GetString("usuario");
+}
+
+@if (string.IsNullOrEmpty(usuario))
+{
+    <script>
+        window.location.replace("/Auth/Login");
+    </script>
+
+    return;
 }
 
 <style>
@@ -19,6 +29,7 @@
             z-index: -1;
         }
 
+    /* ☰ BOTÓN */
     .toggle-btn {
         position: fixed;
         top: 18px;
@@ -43,6 +54,7 @@
             transform: scale(1.08);
         }
 
+    /* 📂 SIDEBAR */
     .sidebar {
         width: 240px;
         height: 100vh;
@@ -65,24 +77,30 @@
             margin-bottom: 20px;
         }
 
-    .menu a {
-        display: block;
-        padding: 12px 10px;
-        margin-bottom: 6px;
-        color: #cbd5e1;
-        text-decoration: none;
-        border-radius: 10px;
-        transition: 0.2s;
+    .menu {
+        height: calc(100vh - 120px);
+        display: flex;
+        flex-direction: column;
     }
 
-        .menu a:hover {
-            background: rgba(0, 198, 255, 0.12);
-            color: #00c6ff;
-            padding-left: 14px;
+        .menu a {
+            display: block;
+            padding: 12px 10px;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.2s;
         }
 
+            .menu a:hover {
+                background: rgba(0, 198, 255, 0.12);
+                color: #00c6ff;
+                padding-left: 14px;
+            }
+
     .logout-link {
-        margin-top: 15px;
+        margin-top: auto;
         display: block;
         padding: 12px 10px;
         border-radius: 10px;
@@ -97,6 +115,7 @@
             padding-left: 14px;
         }
 
+    /* 📄 MAIN */
     .main {
         margin-left: 240px;
         transition: 0.35s ease;
@@ -106,6 +125,7 @@
             margin-left: 0;
         }
 
+    /* 🎓 CARD CURSO */
     .course-card {
         transition: .2s ease;
         border-radius: 15px;
@@ -133,12 +153,12 @@
     }
 </style>
 
-<!-- BOTÓN -->
+<!-- ☰ BOTÓN -->
 <button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
     ☰
 </button>
 
-<!-- SIDEBAR -->
+<!-- 📂 SIDEBAR -->
 <div id="sidebar" class="sidebar">
 
     <h5>⚡ ElectroLearn</h5>
@@ -149,19 +169,23 @@
         <a href="/Dashboard/Videos">🎥 Videos</a>
         <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
 
-        <a href="/Auth/Logout" class="logout-link">🚪 Cerrar sesión</a>
+        <a href="/Auth/Logout" class="logout-link">
+            🚪 Cerrar sesión
+        </a>
     </div>
 
 </div>
 
-<!-- CONTENIDO -->
+<!-- 📄 MAIN -->
 <div id="mainContent" class="main container py-4">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div>
             <h2 class="fw-bold">📚 Mis Cursos</h2>
-            <p class="text-muted mb-0">Gestiona tus cursos y videos</p>
+            <p class="text-muted mb-0">
+                Gestiona tus cursos y videos
+            </p>
         </div>
 
         <a class="btn btn-primary shadow-sm btn-add-course"
@@ -190,16 +214,24 @@
 
                         @if (!string.IsNullOrEmpty(curso.ImagenUrl))
                         {
-                            <img src="@curso.ImagenUrl" class="card-img-top course-img" />
+                            <img src="@curso.ImagenUrl"
+                                 class="card-img-top course-img" />
                         }
 
                         <div class="card-body">
-                            <h5 class="fw-bold">@curso.Titulo</h5>
-                            <p class="text-muted small">@curso.Descripcion</p>
+
+                            <h5 class="fw-bold">
+                                @curso.Titulo
+                            </h5>
+
+                            <p class="text-muted small">
+                                @curso.Descripcion
+                            </p>
 
                             <span class="badge bg-info text-dark">
                                 🎥 @(curso.Videos?.Count ?? 0) videos
                             </span>
+
                         </div>
 
                         <div class="card-footer d-flex justify-content-between">
@@ -222,44 +254,6 @@
                     </div>
 
                 </div>
-
-                <div class="modal fade" id="videoModal-@curso.Id" tabindex="-1">
-                    <div class="modal-dialog">
-
-                        <div class="modal-content bg-dark text-white">
-
-                            <form asp-controller="Video" asp-action="Crear" method="post">
-                                @Html.AntiForgeryToken()
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">➕ Agregar Video</h5>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <div class="modal-body">
-
-                                    <input type="hidden" name="CursoId" value="@curso.Id" />
-
-                                    <label>Título</label>
-                                    <input name="Titulo" class="form-control mb-2" required />
-
-                                    <label>YouTube URL</label>
-                                    <input name="YoutubeUrl" class="form-control mb-2" required />
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success w-100">
-                                        💾 Guardar Video
-                                    </button>
-                                </div>
-
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
             }
 
         </div>
@@ -269,6 +263,7 @@
 
 <script>
     function toggleSidebar() {
+
         const sidebar = document.getElementById("sidebar");
         const main = document.getElementById("mainContent");
         const btn = document.getElementById("btnToggle");
@@ -276,6 +271,9 @@
         sidebar.classList.toggle("hidden");
         main.classList.toggle("full");
 
-        btn.innerHTML = sidebar.classList.contains("hidden") ? "☰" : "✖";
+        btn.innerHTML =
+            sidebar.classList.contains("hidden")
+                ? "☰"
+                : "✖";
     }
 </script>

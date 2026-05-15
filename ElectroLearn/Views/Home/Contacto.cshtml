@@ -44,7 +44,7 @@
         margin: auto;
     }
 
-    /* 💎 GLASS CARD PRO */
+    /* 💎 GLASS CARD */
     .glass-card {
         background: rgba(15, 23, 42, 0.72);
         border: 1px solid rgba(255,255,255,0.08);
@@ -79,17 +79,15 @@
         text-align: center;
         font-weight: 800;
         color: #00c6ff;
-        letter-spacing: 1px;
     }
 
-    /* ✏️ INPUTS PRO */
+    /* ✏️ INPUTS */
     .form-control {
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.1);
         color: white;
         border-radius: 14px;
         padding: 12px;
-        transition: 0.3s;
     }
 
         .form-control:focus {
@@ -99,7 +97,7 @@
             color: white;
         }
 
-    /* 🔥 BOTÓN MODERNO GLOW */
+    /* 🔥 BOTÓN */
     .btn-modern {
         background: linear-gradient(135deg, #00c6ff, #0072ff);
         border: none;
@@ -107,17 +105,9 @@
         padding: 12px;
         font-weight: 600;
         color: white;
-        transition: 0.3s;
-        position: relative;
-        overflow: hidden;
     }
 
-        .btn-modern:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(0,198,255,0.5);
-        }
-
-    /* 🌐 SOCIAL ITEMS PRO */
+    /* 🌐 SOCIAL */
     .social-item {
         display: flex;
         align-items: center;
@@ -127,7 +117,6 @@
         border-radius: 14px;
         background: rgba(255,255,255,0.05);
         transition: 0.3s;
-        cursor: pointer;
         text-decoration: none;
         color: white;
     }
@@ -142,17 +131,46 @@
             color: #00c6ff;
         }
 
+    /* 🔔 TOAST */
+    .toast-modern {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: rgba(15, 23, 42, 0.95);
+        border: 1px solid rgba(0,198,255,0.4);
+        color: white;
+        padding: 14px 18px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        backdrop-filter: blur(12px);
+        opacity: 0;
+        transform: translateY(20px);
+        pointer-events: none;
+        transition: 0.4s ease;
+    }
+
+        .toast-modern.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .toast-modern i {
+            color: #00ffb3;
+            font-size: 20px;
+        }
 </style>
 
 <div class="contact-wrapper">
 
-    <!-- 📩 FORM CARD -->
+    <!-- FORM -->
     <div class="glass-card">
-        <h2 class="title">
-            <i class="bi bi-send"></i> Contáctanos
-        </h2>
+        <h2 class="title"><i class="bi bi-send"></i> Contáctanos</h2>
 
-        <form class="mt-4">
+        <form id="contactForm" class="mt-4">
 
             <div class="mb-3">
                 <label>Nombre</label>
@@ -169,18 +187,16 @@
                 <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje"></textarea>
             </div>
 
-            <button class="btn btn-modern w-100">
+            <button type="submit" class="btn btn-modern w-100">
                 ✈ Enviar mensaje
             </button>
 
         </form>
     </div>
 
-    <!-- 🌐 INFO CARD -->
+    <!-- INFO -->
     <div class="glass-card">
-        <h2 class="title">
-            <i class="bi bi-globe2"></i> Conéctate
-        </h2>
+        <h2 class="title"><i class="bi bi-globe2"></i> Conéctate</h2>
 
         <p class="text-center mt-3">⚡ ElectroLearn</p>
         <p class="text-center">📧 contacto@electrolearn.com</p>
@@ -196,14 +212,35 @@
             <i class="bi bi-instagram"></i> Instagram
         </a>
 
-        <a class="social-item" href="https://www.youtube.com/@ElectroLearn2026" target="_blank">
+        <a class="social-item" href="https://www.youtube.com" target="_blank">
             <i class="bi bi-youtube"></i> YouTube
         </a>
 
         <a class="social-item" href="https://x.com" target="_blank">
             <i class="bi bi-twitter-x"></i> Twitter (X)
         </a>
-
     </div>
-
 </div>
+
+<!-- 🔔 TOAST -->
+<div id="toast" class="toast-modern">
+    <i class="bi bi-check-circle-fill"></i>
+    <span>Mensaje enviado correctamente</span>
+</div>
+
+<script>
+    const form = document.getElementById("contactForm");
+    const toast = document.getElementById("toast");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        toast.classList.add("show");
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 3000);
+
+        form.reset();
+    });
+</script>

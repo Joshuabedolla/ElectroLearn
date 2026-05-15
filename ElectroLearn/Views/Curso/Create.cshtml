@@ -104,15 +104,16 @@
         <div class="mb-3">
             <label>Descripción</label>
             <textarea asp-for="Descripcion" class="form-control" rows="3" required></textarea>
-           </div>
+        </div>
 
         <!-- 🔥 SUBIR IMAGEN -->
         <div class="mb-3">
             <label>Imagen del curso</label>
+
             <input type="file"
                    name="imagenFile"
                    class="form-control"
-                   accept="image/*"
+                   accept="image/png, image/jpeg"
                    onchange="previewImage(event)" />
 
             <img id="preview" class="preview-img" />
@@ -131,12 +132,25 @@
 
 <script>
     function previewImage(event) {
+
         const file = event.target.files[0];
         const preview = document.getElementById("preview");
 
-        if (file) {
-            preview.src = URL.createObjectURL(file);
-            preview.style.display = "block";
+        if (!file) return;
+
+        const allowedTypes = ["image/png", "image/jpeg"];
+
+        if (!allowedTypes.includes(file.type)) {
+
+            alert("Archivo no compatible");
+
+            event.target.value = "";
+            preview.style.display = "none";
+
+            return;
         }
+
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
     }
 </script>

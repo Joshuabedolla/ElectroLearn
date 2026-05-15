@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "LHS8OJo8bn8=",
+  "dgSpecHash": "QljtZE2VgT0=",
   "success": true,
   "projectFilePath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\ElectroLearn.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bedol\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\Bedol\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
     "C:\\Users\\Bedol\\.nuget\\packages\\bcrypt.net-next\\4.1.0\\bcrypt.net-next.4.1.0.nupkg.sha512",
+    "C:\\Users\\Bedol\\.nuget\\packages\\dapper\\2.1.4\\dapper.2.1.4.nupkg.sha512",
     "C:\\Users\\Bedol\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Bedol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\8.0.25\\microsoft.aspnetcore.cryptography.internal.8.0.25.nupkg.sha512",
     "C:\\Users\\Bedol\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\8.0.25\\microsoft.aspnetcore.cryptography.keyderivation.8.0.25.nupkg.sha512",

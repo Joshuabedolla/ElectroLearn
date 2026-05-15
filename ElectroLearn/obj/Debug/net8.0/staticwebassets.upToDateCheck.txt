@@ -20,6 +20,7 @@ wwwroot\images\Programacion,control.jpg
 wwwroot\images\Robotica.jpg
 wwwroot\images\Sensores.jpg
 wwwroot\images\simulacion-y-automatizacion-de-robotica.jpg
+wwwroot\img\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg
 wwwroot\img\1736fa0f-092d-4254-b3af-576c00709107.jpg
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

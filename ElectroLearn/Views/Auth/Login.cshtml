@@ -12,46 +12,50 @@
     <title>ElectroLearn | Login</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+
         body {
             font-family: 'Poppins', sans-serif;
             background: url('/images/Robotica.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
+            overflow: hidden;
         }
 
-        /* Overlay oscuro */
+        /* 🌑 OVERLAY */
         .overlay {
-            background: rgba(15, 23, 42, 0.8);
+            background: rgba(15, 23, 42, 0.82);
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
         }
 
+        /* 📦 CONTENEDOR */
         .login-container {
             position: relative;
             z-index: 2;
         }
 
+        /* 💎 LOGIN BOX */
         .login-box {
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(12px);
+            background: rgba(0, 0, 0, 0.72);
+            backdrop-filter: blur(14px);
             padding: 45px;
-            border-radius: 20px;
-            width: 370px;
+            border-radius: 22px;
+            width: 380px;
             color: white;
-            box-shadow: 0 10px 40px rgba(0, 198, 255, 0.4);
-            animation: fadeIn 1s ease;
+            box-shadow: 0 10px 40px rgba(0, 198, 255, 0.35);
+            animation: fadeIn 0.8s ease;
+            border: 1px solid rgba(255,255,255,0.08);
         }
 
         @@keyframes fadeIn {
+
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(25px);
             }
 
             to {
@@ -60,24 +64,29 @@
             }
         }
 
+        /* 🤖 LOGO */
         .logo {
-            font-size: 28px;
-            font-weight: 600;
+            font-size: 30px;
+            font-weight: 700;
+            color: #00c6ff;
         }
 
         .subtitle {
             font-size: 14px;
             color: #cbd5f5;
-            margin-bottom: 20px;
+            margin-top: 5px;
+            margin-bottom: 22px;
         }
 
+        /* ✏️ INPUTS */
         .form-control {
-            border-radius: 12px;
-            background: rgba(255,255,255,0.9);
+            border-radius: 14px;
+            background: rgba(255,255,255,0.92);
             border: none;
             color: #222;
-            height: 45px;
-            transition: 0.3s;
+            height: 48px;
+            transition: .3s;
+            font-size: 14px;
         }
 
             .form-control::placeholder {
@@ -85,25 +94,27 @@
             }
 
             .form-control:focus {
-                box-shadow: 0 0 12px rgba(0,198,255,0.8);
+                box-shadow: 0 0 14px rgba(0,198,255,0.7);
                 transform: scale(1.02);
             }
 
+        /* 🔵 BOTÓN */
         .btn-custom {
             background: linear-gradient(135deg, #00c6ff, #0072ff);
             border: none;
-            border-radius: 12px;
-            padding: 10px;
-            font-weight: 500;
-            transition: 0.3s;
+            border-radius: 14px;
+            padding: 11px;
+            font-weight: 600;
             color: white;
+            transition: .3s;
         }
 
             .btn-custom:hover {
                 transform: translateY(-2px);
-                box-shadow: 0 8px 20px rgba(0,198,255,0.6);
+                box-shadow: 0 8px 22px rgba(0,198,255,0.55);
             }
 
+        /* 🔗 LINKS */
         a {
             color: #38bdf8;
             text-decoration: none;
@@ -118,30 +129,58 @@
             font-size: 13px;
         }
 
-        /* ALERTA MODERNA */
+        /* 🚨 ALERTA MODERNA */
         .login-alert {
-            background: rgba(15, 23, 42, 0.85);
-            border-left: 4px solid #00c6ff;
+            position: relative;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.94);
+            border: 1px solid rgba(255,255,255,0.08);
             color: white;
-            padding: 14px 18px;
-            border-radius: 14px;
-            margin-bottom: 20px;
+            padding: 16px 18px;
+            border-radius: 16px;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 15px;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 25px rgba(0, 198, 255, 0.25);
-            animation: slideDown 0.5s ease;
+            gap: 14px;
+            backdrop-filter: blur(14px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            animation: slideDown 0.45s ease;
         }
 
-            .login-alert .icon {
-                font-size: 20px;
-                color: #00c6ff;
-            }
+        .alert-glow {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient( 90deg, transparent, rgba(0,198,255,0.08), transparent );
+            animation: glowMove 2.5s linear infinite;
+        }
+
+        .alert-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #00c6ff;
+        }
+
+        .alert-text {
+            font-size: 14px;
+            color: #e2e8f0;
+        }
+
+        .login-alert .icon {
+            width: 45px;
+            height: 45px;
+            min-width: 45px;
+            border-radius: 12px;
+            background: rgba(0,198,255,0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #00c6ff;
+            z-index: 2;
+        }
 
         @@keyframes slideDown {
+
             from {
                 opacity: 0;
                 transform: translateY(-15px);
@@ -152,6 +191,18 @@
                 transform: translateY(0);
             }
         }
+
+        @@keyframes glowMove {
+
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
     </style>
 
 </head>
@@ -164,52 +215,118 @@
 
         <div class="login-box">
 
+            <!-- 🤖 LOGO -->
             <div class="text-center mb-4">
-                <div class="logo">🤖 ElectroLearn</div>
-                <div class="subtitle">Inicia sesión para continuar</div>
+
+                <div class="logo">
+                    🤖 ElectroLearn
+                </div>
+
+                <div class="subtitle">
+                    Inicia sesión para continuar
+                </div>
+
             </div>
 
+            <!-- 🚨 ALERTA -->
             @if (TempData["Error"] != null)
             {
                 <div class="login-alert">
-                    <span class="icon">⚡</span>
-                    <span>@TempData["Error"]</span>
+
+                    <div class="alert-glow"></div>
+
+                    <span class="icon">
+                        🔒
+                    </span>
+
+                    <div>
+
+                        <div class="alert-title">
+                            Acceso requerido
+                        </div>
+
+                        <div class="alert-text">
+                            @TempData["Error"]
+                        </div>
+
+                    </div>
+
                 </div>
             }
 
-            <form asp-controller="Auth" asp-action="Login" method="post">
+            <!-- 🔐 FORM -->
+            <form asp-controller="Auth"
+                  asp-action="Login"
+                  method="post">
 
                 @Html.AntiForgeryToken()
 
-                <div asp-validation-summary="ModelOnly" class="text-danger mb-2"></div>
-
-                <div class="mb-3">
-                    <input class="form-control" asp-for="Email" placeholder="📧 Correo electrónico" />
-                    <span class="text-danger" asp-validation-for="Email"></span>
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-2">
                 </div>
 
+                <!-- EMAIL -->
                 <div class="mb-3">
-                    <input class="form-control" asp-for="Password" type="password" placeholder="🔒 Contraseña" />
-                    <span class="text-danger" asp-validation-for="Password"></span>
+
+                    <input class="form-control"
+                           asp-for="Email"
+                           placeholder="📧 Correo electrónico" />
+
+                    <span class="text-danger"
+                          asp-validation-for="Email">
+                    </span>
+
                 </div>
 
-                <button class="btn btn-custom w-100" type="submit">
+                <!-- PASSWORD -->
+                <div class="mb-3">
+
+                    <input class="form-control"
+                           asp-for="Password"
+                           type="password"
+                           placeholder="🔒 Contraseña" />
+
+                    <span class="text-danger"
+                          asp-validation-for="Password">
+                    </span>
+
+                </div>
+
+                <!-- BOTÓN -->
+                <button class="btn btn-custom w-100"
+                        type="submit">
+
                     Entrar
+
                 </button>
 
             </form>
 
-            <p class="text-danger mt-3 text-center error">@ViewBag.Error</p>
+            <!-- ERROR -->
+            <p class="text-danger mt-3 text-center error">
+                @ViewBag.Error
+            </p>
 
+            <!-- REGISTRO -->
             <div class="text-center mt-3">
-                <small>¿No tienes cuenta?</small><br />
-                <a href="/Auth/Registro">Crear cuenta</a>
+
+                <small>
+                    ¿No tienes cuenta?
+                </small>
+
+                <br />
+
+                <a href="/Auth/Registro">
+                    Crear cuenta
+                </a>
+
             </div>
 
         </div>
 
     </div>
 
+    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
@@ -218,4 +335,3 @@
 
 </body>
 </html>
-

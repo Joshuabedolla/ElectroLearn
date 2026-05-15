@@ -14,6 +14,7 @@ namespace ElectroLearn.Models
         public string Descripcion { get; set; }
 
         public string? ImagenUrl { get; set; }
+        public int UsuarioId { get; set; }
 
         // ✅ RELACIÓN CORRECTA
         public List<Video> Videos { get; set; } = new List<Video>();

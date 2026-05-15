@@ -4,6 +4,7 @@ using ElectroLearn.Models;
 using ElectroLearn.ViewModels;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace ElectroLearn.Controllers
 {
@@ -39,9 +40,13 @@ namespace ElectroLearn.Controllers
 
             if (user != null && BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
             {
-                HttpContext.Session.SetInt32("userId", user.Id);
+                // 🔥 GUARDAR SESIÓN
+                HttpContext.Session.SetInt32("usuarioId", user.Id);
+
                 HttpContext.Session.SetString("usuario", user.Nombre);
+
                 HttpContext.Session.SetString("email", user.Email);
+
                 HttpContext.Session.SetString("rol", user.Rol ?? "Usuario");
 
                 TempData["Success"] = "Bienvenido a ElectroLearn ⚡";
@@ -50,6 +55,7 @@ namespace ElectroLearn.Controllers
             }
 
             ViewBag.Error = "Credenciales incorrectas";
+
             return View(model);
         }
 
@@ -86,6 +92,7 @@ namespace ElectroLearn.Controllers
             };
 
             _context.Usuarios.Add(usuario);
+
             _context.SaveChanges();
 
             TempData["Success"] = "Cuenta creada correctamente";
@@ -102,10 +109,17 @@ namespace ElectroLearn.Controllers
             if (string.IsNullOrEmpty(usuario))
             {
                 TempData["Error"] = "Debes iniciar sesión";
+
                 return RedirectToAction("Login", "Auth");
             }
 
-            var cursos = _context.Cursos.ToList();
+            // 🔥 FILTRAR CURSOS DEL USUARIO
+            int? usuarioId = HttpContext.Session.GetInt32("usuarioId");
+
+            var cursos = _context.Cursos
+                .Include(c => c.Videos)
+                .Where(c => c.UsuarioId == usuarioId)
+                .ToList();
 
             return View(cursos);
         }
@@ -114,7 +128,9 @@ namespace ElectroLearn.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+
             TempData["Info"] = "Sesión cerrada correctamente";
+
             return RedirectToAction("Login");
         }
     }

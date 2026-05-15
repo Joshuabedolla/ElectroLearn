@@ -276,6 +276,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"wvcv3iny8w"},{"Name":"integrity","Value":"sha256-BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo="},{"Name":"label","Value":"_content/ElectroLearn/images/simulacion-y-automatizacion-de-robotica.jpg"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"631190"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022BFIm\u002B68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP\u002Bpcyoo=\u0022"},{"Name":"Last-Modified","Value":"Sat, 02 May 2026 15:50:21 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/img/0889faea-5129-43fe-bf83-5890f7c60d0f.9zt7j0413n.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"9zt7j0413n"},{"Name":"integrity","Value":"sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="},{"Name":"label","Value":"_content/ElectroLearn/img/0889faea-5129-43fe-bf83-5890f7c60d0f.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"173530"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 14 May 2026 22:59:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/ElectroLearn/img/0889faea-5129-43fe-bf83-5890f7c60d0f.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"173530"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\u0022"},{"Name":"Last-Modified","Value":"Thu, 14 May 2026 22:59:21 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/ElectroLearn/img/1736fa0f-092d-4254-b3af-576c00709107.9zt7j0413n.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\1736fa0f-092d-4254-b3af-576c00709107.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iC/M3H0D0UMW+ObBDlX5U1UfwNSUURc5L4R9KPsfyT8=",
+  "Hash": "f34U8E/CQX9/1M9QdFAG9t2gREq3e/oslscp9HKVWkc=",
   "Source": "ElectroLearn",
   "BasePath": "_content/ElectroLearn",
   "Mode": "Default",
@@ -519,6 +519,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\simulacion-y-automatizacion-de-robotica.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\img\\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg",
+      "SourceId": "ElectroLearn",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\",
+      "BasePath": "_content/ElectroLearn",
+      "RelativePath": "img/0889faea-5129-43fe-bf83-5890f7c60d0f#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "9zt7j0413n",
+      "Integrity": "hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg"
     },
     {
       "Identity": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\img\\1736fa0f-092d-4254-b3af-576c00709107.jpg",
@@ -3726,6 +3747,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-BFIm+68QXDeuGU7Bh/79kGq3YWGZ2/3pAwqOP+pcyoo="
+        }
+      ]
+    },
+    {
+      "Route": "img/0889faea-5129-43fe-bf83-5890f7c60d0f.9zt7j0413n.jpg",
+      "AssetFile": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\img\\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173530"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 14 May 2026 22:59:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9zt7j0413n"
+        },
+        {
+          "Name": "label",
+          "Value": "img/0889faea-5129-43fe-bf83-5890f7c60d0f.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="
+        }
+      ]
+    },
+    {
+      "Route": "img/0889faea-5129-43fe-bf83-5890f7c60d0f.jpg",
+      "AssetFile": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\wwwroot\\img\\0889faea-5129-43fe-bf83-5890f7c60d0f.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "173530"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 14 May 2026 22:59:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hQZ2AD5R/W9/cTdhSRNzx9/ZAGJFBH4QKWD8FZU9hiY="
         }
       ]
     },
