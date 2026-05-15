@@ -28,25 +28,51 @@ namespace ElectroLearn.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Crear(Video video)
         {
-            if (!EsAdmin())
-                return RedirectToAction("Login", "Auth");
+
 
             ModelState.Remove("Curso");
 
             if (video.CursoId == 0)
             {
                 TempData["Error"] = "CursoId no recibido";
+                Console.WriteLine("error cursoid");
                 return RedirectToAction("Index", "Curso");
             }
 
             if (!ModelState.IsValid)
             {
                 TempData["Error"] = "Datos inválidos";
-                return RedirectToAction("Details", "Curso", new { id = video.CursoId });
+                TempData["ErrorTitulo"] = ModelState["Titulo"]?
+                                        .Errors
+                                        .FirstOrDefault()?
+                                        .ErrorMessage;
+                TempData["ErrorUrl"] = ModelState["YoutubeUrl"]?
+                                        .Errors
+                                        .FirstOrDefault()?
+                                        .ErrorMessage;
+                TempData["ModalId"] = video.CursoId;
+                TempData["Titulo"] = video.Titulo;
+                TempData["Url"] = video.YoutubeUrl;
+                Console.WriteLine(video.Titulo);
+                Console.WriteLine(video.YoutubeUrl);
+
+
+                return RedirectToAction("MisCursos", "Curso");
+                //return RedirectToAction("Details", "Curso", new { id = video.CursoId });
             }
 
             // 🔥 FIX REAL
-            video.YoutubeUrl = ConvertirYoutube(video.YoutubeUrl.Trim());
+            string urlValido = ConvertirYoutube(video.YoutubeUrl.Trim());
+            if(urlValido == ""){
+                TempData["Error"] = "Datos inválidos";
+                TempData["ErrorUrl"] = "No es un vídeo válido";
+                TempData["ModalId"] = video.CursoId;
+                TempData["Titulo"] = video.Titulo;
+                TempData["Url"] = video.YoutubeUrl;
+                return RedirectToAction("MisCursos", "Curso");
+
+            }
+            video.YoutubeUrl = urlValido;
 
             _context.Videos.Add(video);
             _context.SaveChanges();
@@ -132,7 +158,7 @@ namespace ElectroLearn.Controllers
         private string ConvertirYoutube(string url)
         {
             if (string.IsNullOrWhiteSpace(url))
-                return url;
+                return "";
 
             try
             {
@@ -159,11 +185,11 @@ namespace ElectroLearn.Controllers
                 if (!string.IsNullOrEmpty(videoId))
                     return $"https://www.youtube.com/embed/{videoId}";
 
-                return url;
+                return "";
             }
             catch
             {
-                return url;
+                return "";
             }
         }
     }

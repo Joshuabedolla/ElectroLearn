@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace ElectroLearn.ViewModels
 {
@@ -8,7 +10,7 @@ namespace ElectroLearn.ViewModels
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "El correo es obligatorio")]
-        [EmailAddress(ErrorMessage = "Correo inválido")]
+        [EmailAddress(ErrorMessage = "Correo inválido")]        
         public string Email { get; set; }
 
         [Required(ErrorMessage = "La contraseña es obligatoria")]

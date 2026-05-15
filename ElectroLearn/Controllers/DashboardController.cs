@@ -59,12 +59,14 @@ public class DashboardController : Controller
             return RedirectToAction("Login", "Auth");
         }
 
+        return RedirectToAction("Index", "Configuracion");
+
         return View();
     }
 
     // ✅ POST CONFIGURACIÓN
     [HttpPost]
-    public IActionResult Configuracion(string actual, string nueva, string confirmar)
+    public IActionResult Configuracion(string PasswordActual, string NuevaPassword, string ConfirmarPassword)
     {
         var usuario = HttpContext.Session.GetString("usuario");
 
@@ -75,24 +77,25 @@ public class DashboardController : Controller
         }
 
         // ✅ Validar campos
-        if (string.IsNullOrEmpty(actual) ||
-            string.IsNullOrEmpty(nueva) ||
-            string.IsNullOrEmpty(confirmar))
+        if (string.IsNullOrEmpty(PasswordActual) ||
+            string.IsNullOrEmpty(NuevaPassword) ||
+            string.IsNullOrEmpty(ConfirmarPassword))
         {
             TempData["Error"] = "Todos los campos son obligatorios";
             return RedirectToAction("Configuracion");
         }
 
         // ✅ Validar coincidencia
-        if (nueva != confirmar)
+        if (NuevaPassword != ConfirmarPassword)
         {
+            
             TempData["Error"] = "Las contraseñas no coinciden";
             return RedirectToAction("Configuracion");
         }
 
         // ✅ Connection String
         string connectionString =
-            "Server=localhost\\SQLEXPRESS;Database=robotica_db;Trusted_Connection=True;TrustServerCertificate=True;Encrypt=False;";
+            "Server=sql.bsite.net\\MSSQL2016;Database=tl25_electrolearn;User Id=tl25_electrolearn;Password=Baul12345;MultipleActiveResultSets=true;TrustServerCertificate=true;";
 
         using (var connection = new SqlConnection(connectionString))
         {
@@ -111,7 +114,7 @@ public class DashboardController : Controller
             }
 
             // ✅ Verificar contraseña actual
-            if (!BCrypt.Net.BCrypt.Verify(actual, usuarioDb.PasswordHash))
+            if (!BCrypt.Net.BCrypt.Verify(PasswordActual, usuarioDb.PasswordHash))
             {
                 TempData["Error"] = "La contraseña actual es incorrecta";
                 return RedirectToAction("Configuracion");
@@ -119,7 +122,7 @@ public class DashboardController : Controller
 
             // ✅ Nuevo hash
             string nuevaPasswordHash =
-                BCrypt.Net.BCrypt.HashPassword(nueva);
+                BCrypt.Net.BCrypt.HashPassword(NuevaPassword);
 
             // ✅ Actualizar contraseña
             connection.Execute(

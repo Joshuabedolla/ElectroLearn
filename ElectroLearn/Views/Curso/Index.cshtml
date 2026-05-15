@@ -2,6 +2,11 @@
 
 @{
     ViewData["Title"] = "Mis Cursos";
+    var openModal = ViewBag.OpenModal;
+
+
+    var cursos = Model ?? new List<ElectroLearn.Models.Curso>();
+
     var usuario = Context.Session.GetString("usuario");
 }
 
@@ -119,9 +124,11 @@
     .main {
         margin-left: 240px;
         transition: 0.35s ease;
+        width: calc(100% - 240px);
     }
 
         .main.full {
+            width: 100%;
             margin-left: 0;
         }
 
@@ -243,7 +250,7 @@
                                 Ver curso
                             </a>
 
-                            <button class="btn btn-outline-success btn-sm"
+                            <button onclick="limpiarModal('videoModal-@curso.Id')" class="btn btn-outline-success btn-sm"
                                     data-bs-toggle="modal"
                                     data-bs-target="#videoModal-@curso.Id">
                                 ➕ Video
@@ -253,6 +260,47 @@
 
                     </div>
 
+                </div>
+
+                <div class="modal fade" id="videoModal-@curso.Id" tabindex="-1">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content bg-dark text-white">
+
+                            <form asp-controller="Video" asp-action="Crear" method="post">
+                                @Html.AntiForgeryToken()
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">➕ Agregar Video</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <input type="hidden" name="CursoId" value="@curso.Id" />
+
+                                    <label id="labelTitulo">Título</label>
+                                    
+                                    <input name="Titulo"  class="form-control mb-2" />
+
+                                    <label id="labelUrl" for="YoutubeUrl">YouTube URL</label>
+                                    
+                                    
+                                    <input name="YoutubeUrl" class="form-control mb-2"  />
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        💾 Guardar Video
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
                 </div>
             }
 
@@ -276,4 +324,47 @@
                 ? "☰"
                 : "✖";
     }
+    const limpiarModal = (idModal) => {
+        const modal = document.getElementById(idModal);
+        modal.querySelectorAll(".text-danger").forEach(elemento => elemento.remove())
+        modal.querySelector('[name="Titulo"]').value = ''
+        modal.querySelector('[name="YoutubeUrl"]').value = ''
+        
+
+    }
+
 </script>
+
+
+@if (TempData["ModalId"] != null)
+{
+    <script>
+    
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const modalId = "videoModal-@TempData["ModalId"]";
+
+            const modalElement =
+                document.getElementById(modalId);
+                
+
+            const modal =
+                new bootstrap.Modal(modalElement);
+            // mostrar errores
+            modalElement.querySelector("#labelTitulo").insertAdjacentHTML("afterend",
+            '@if(TempData["ErrorTitulo"] != null ){<span class="text-danger">  @TempData["ErrorTitulo"]</span>}')
+
+            modalElement.querySelector("#labelUrl").insertAdjacentHTML("afterend",
+            '@if(TempData["ErrorUrl"] != null ){<span class="text-danger">  @TempData["ErrorUrl"]</span>}')
+
+            // mostrar valores
+            modalElement.querySelector('[name="Titulo"]').value = '@if(TempData["Titulo"] != null ){@TempData["Titulo"]}'
+
+            modalElement.querySelector('[name="YoutubeUrl"]').value = '@if(TempData["Url"] != null ){@TempData["Url"]}'
+
+
+
+            modal.show();
+        });
+    </script>
+}

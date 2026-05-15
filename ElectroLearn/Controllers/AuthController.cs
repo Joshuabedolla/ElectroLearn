@@ -79,7 +79,7 @@ namespace ElectroLearn.Controllers
 
             if (_context.Usuarios.Any(u => u.Email == model.Email))
             {
-                ViewBag.Error = "El correo ya está registrado";
+                ModelState.AddModelError("Email", "El correo ya está registrado.");
                 return View(model);
             }
 
@@ -95,10 +95,12 @@ namespace ElectroLearn.Controllers
 
             _context.SaveChanges();
 
-            TempData["Success"] = "Cuenta creada correctamente";
+            TempData["Success"] = "Cuenta creada correctamente.";
 
             return RedirectToAction("Login");
         }
+
+        
 
         // ===================== DASHBOARD =====================
         [Route("Dashboard")]
@@ -131,7 +133,7 @@ namespace ElectroLearn.Controllers
 
             TempData["Info"] = "Sesión cerrada correctamente";
 
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -48,7 +48,7 @@ namespace ElectroLearn.Controllers
             if (!UsuarioLogueado())
                 return RequiereLogin();
 
-            int? userId = HttpContext.Session.GetInt32("userId");
+            int? userId = HttpContext.Session.GetInt32("usuarioId");
 
             var cursos = _context.Cursos
                 .Include(c => c.Videos)
@@ -88,15 +88,19 @@ namespace ElectroLearn.Controllers
             if (!UsuarioLogueado())
                 return RequiereLogin();
 
-            int? userId = HttpContext.Session.GetInt32("userId");
+            int? userId = HttpContext.Session.GetInt32("usuarioId");
 
             if (userId == null)
                 return RequiereLogin();
 
+            if (!ModelState.IsValid){
+                Console.WriteLine(ModelState["ImagenUrl"]);
+                return View(curso);
+            }
+
             ModelState.Remove("ImagenUrl");
 
-            if (!ModelState.IsValid)
-                return View(curso);
+            
 
             // 🖼️ SUBIR IMAGEN
             if (imagenFile != null && imagenFile.Length > 0)
@@ -122,6 +126,9 @@ namespace ElectroLearn.Controllers
                 curso.ImagenUrl = "/img/" + nombre;
             }
 
+            
+                
+
             // 🔒 ASIGNAR CURSO AL USUARIO
             curso.UsuarioId = userId.Value;
 
@@ -129,7 +136,7 @@ namespace ElectroLearn.Controllers
 
             await _context.SaveChangesAsync();
 
-            return RedirectToAction(nameof(MisCursos));
+            return RedirectToAction("MisCursos");
         }
     }
 }
