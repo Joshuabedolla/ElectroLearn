@@ -1,0 +1,287 @@
+﻿@model List<ElectroLearn.Models.Curso>
+
+@{
+    ViewData["Title"] = "Mis Cursos";
+}
+
+<style>
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+
+    .toggle-btn {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        z-index: 2000;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background: rgba(2, 6, 23, 0.85);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+        .toggle-btn:hover {
+            background: rgba(0, 198, 255, 0.25);
+            transform: scale(1.08);
+        }
+
+    .sidebar {
+        width: 240px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(2, 6, 23, 0.98);
+        padding: 20px;
+        padding-top: 70px;
+        transition: transform 0.35s ease;
+        z-index: 1500;
+    }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h5 {
+            color: #00c6ff;
+            margin-bottom: 20px;
+        }
+
+    .menu a {
+        display: block;
+        padding: 12px 10px;
+        margin-bottom: 6px;
+        color: #cbd5e1;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+        .menu a:hover {
+            background: rgba(0, 198, 255, 0.12);
+            color: #00c6ff;
+            padding-left: 14px;
+        }
+
+    .logout-link {
+        margin-top: 15px;
+        display: block;
+        padding: 12px 10px;
+        border-radius: 10px;
+        color: #ff6b6b;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+        .logout-link:hover {
+            background: rgba(255,0,0,0.15);
+            color: #ff3b3b;
+            padding-left: 14px;
+        }
+
+    .main {
+        margin-left: 240px;
+        
+        /*width: calc(100% - 240px);*/
+        transition: 0.35s ease;
+
+    }
+
+        .main.full {
+            margin-left: 0;
+            /*width: 100%;*/
+        }
+
+    .course-card {
+        transition: .2s ease;
+        border-radius: 15px;
+        overflow: hidden;
+        background: rgba(30, 41, 59, 0.9);
+        color: white;
+    }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+    .course-img {
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .btn-add-course {
+        font-size: 12px;
+        padding: 5px 10px;
+        border-radius: 6px;
+        width: fit-content;
+        height: 32px;
+        white-space: nowrap;
+        margin-right: 15px;
+    }
+</style>
+
+<!-- BOTÓN -->
+<button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
+    ☰
+</button>
+
+<!-- SIDEBAR -->
+<div id="sidebar" class="sidebar">
+
+    <h5>⚡ ElectroLearn</h5>
+
+    <div class="menu">
+        <a href="/Dashboard">🏠 Inicio</a>
+        <a href="/Dashboard/MisCursos">📚 Mis cursos</a>
+        <a href="/Dashboard/Videos">🎥 Videos</a>
+        <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
+
+        <a href="/Auth/Logout" class="logout-link">🚪 Cerrar sesión</a>
+    </div>
+
+</div>
+
+<!-- CONTENIDO -->
+<div id="mainContent" class="main container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2 class="fw-bold">📚 Mis Cursos</h2>
+            <p class="text-muted mb-0">Gestiona tus cursos y videos</p>
+        </div>
+
+        <a class="btn btn-primary shadow-sm btn-add-course"
+           asp-controller="Curso"
+           asp-action="Create">
+            ➕ Agregar Curso
+        </a>
+
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center p-4">
+            <h5>No tienes cursos aún 😢</h5>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+
+            @foreach (var curso in Model)
+            {
+                <div class="col-md-4 col-sm-6">
+
+                    <div class="card course-card h-100 border-0">
+
+                        @if (!string.IsNullOrEmpty(curso.ImagenUrl))
+                        {
+                            <img src="@curso.ImagenUrl" class="card-img-top course-img" />
+                        }
+
+                        <div class="card-body">
+                            <h5 class="fw-bold">@curso.Titulo</h5>
+                            <p class="text-muted small">@curso.Descripcion</p>
+
+                            <span class="badge bg-info text-dark">
+                                🎥 @(curso.Videos?.Count ?? 0) videos
+                            </span>
+                        </div>
+
+                        <div class="card-footer d-flex justify-content-between">
+
+                            <a asp-controller="Curso"
+                               asp-action="Details"
+                               asp-route-id="@curso.Id"
+                               class="btn btn-outline-light btn-sm">
+                                Ver curso
+                            </a>
+
+                            <button class="btn btn-outline-success btn-sm"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#videoModal-@curso.Id">
+                                ➕ Video
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade" id="videoModal-@curso.Id" tabindex="-1">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content bg-dark text-white">
+
+                            <form asp-controller="Video" asp-action="Crear" method="post">
+                                @Html.AntiForgeryToken()
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">➕ Agregar Video</h5>
+                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                    <input type="hidden" name="CursoId" value="@curso.Id" />
+
+                                    <label>Título</label>
+                                    <input name="Titulo" class="form-control mb-2" required />
+
+                                    <label>YouTube URL</label>
+                                    <input name="YoutubeUrl" class="form-control mb-2" required />
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success w-100">
+                                        💾 Guardar Video
+                                    </button>
+                                </div>
+
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+
+        </div>
+    }
+
+</div>
+
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("mainContent");
+        const btn = document.getElementById("btnToggle");
+
+        sidebar.classList.toggle("hidden");
+        main.classList.toggle("full");
+
+        btn.innerHTML = sidebar.classList.contains("hidden") ? "☰" : "✖";
+    }
+</script>

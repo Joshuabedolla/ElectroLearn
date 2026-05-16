@@ -1,0 +1,306 @@
+﻿@{
+    ViewData["Title"] = "Conceptos de Robótica";
+}
+
+<style>
+    .conceptos-container {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        padding: 0px 0;
+    }
+
+    .overlay {
+        background: rgba(15, 23, 42, 0.85);
+        min-height: 100vh;
+        padding: 60px 0;
+    }
+
+    .title {
+        text-align: center;
+        color: white;
+        font-weight: 700;
+        text-shadow: 0 0 10px #00c6ff;
+    }
+
+    .subtitle {
+        text-align: center;
+        color: rgba(255,255,255,0.7);
+        margin-bottom: 40px;
+    }
+
+    /* 👇 elimina la mano del mouse */
+    .concept-link {
+        text-decoration: none;
+        cursor: default;
+    }
+
+    .concept-card {
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        background: rgba(30, 41, 59, 0.95);
+        color: white;
+        transition: all 0.3s ease;
+        height: 100%;
+        box-shadow: 0 0 10px rgba(0,198,255,0.15);
+        cursor: default;
+    }
+
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0,198,255,0.6);
+        }
+
+    .concept-img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .concept-card:hover .concept-img {
+        transform: scale(1.05);
+    }
+
+    .concept-body {
+        padding: 15px;
+    }
+
+    .concept-title {
+        color: #00c6ff;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .concept-text {
+        font-size: 14px;
+        opacity: 0.85;
+    }
+</style>
+
+<div class="conceptos-container">
+    <div class="overlay">
+        <div class="container">
+
+            <h1 class="title">Conceptos de Robótica 🤖</h1>
+            <p class="subtitle">
+                Aprende los fundamentos clave de la robótica de forma visual e interactiva
+            </p>
+
+            <div class="row g-4">
+
+                <!-- Sensores -->
+                <div class="col-md-4">
+                    <a href="https://es.wikipedia.org/wiki/Sensor" target="_blank" class="concept-link">
+                        <div class="concept-card">
+                            <img src="/images/Sensores.jpg" class="concept-img" />
+                            <div class="concept-body">
+                                <h5 class="concept-title">Sensores</h5>
+                                <p class="concept-text">
+                                    Permiten a los robots percibir el entorno mediante luz, temperatura y distancia.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Actuadores -->
+                <div class="col-md-4">
+                    <a href="https://es.wikipedia.org/wiki/Actuador" target="_blank" class="concept-link">
+                        <div class="concept-card">
+                            <img src="/images/Actuador.jpg" class="concept-img" />
+                            <div class="concept-body">
+                                <h5 class="concept-title">Actuadores</h5>
+                                <p class="concept-text">
+                                    Motores y mecanismos que permiten el movimiento del robot.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Microcontroladores -->
+                <div class="col-md-4">
+                    <a href="https://es.wikipedia.org/wiki/Microcontrolador" target="_blank" class="concept-link">
+                        <div class="concept-card">
+                            <img src="/images/microcontrolador.jpg" class="concept-img" />
+                            <div class="concept-body">
+                                <h5 class="concept-title">Microcontroladores</h5>
+                                <p class="concept-text">
+                                    Son el cerebro del robot que ejecuta instrucciones programadas.
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Cinemática -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Cinematica.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Cinemática</h5>
+                            <p class="concept-text">
+                                Estudio del movimiento del robot sin considerar fuerzas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Control -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Control.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Control</h5>
+                            <p class="concept-text">
+                                Técnicas para controlar el comportamiento del robot (PID, IA).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Automatización -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Automatizacion.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Automatización</h5>
+                            <p class="concept-text">
+                                Uso de robots para tareas industriales sin intervención humana directa.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programación -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Programacion,control.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Programación/Control</h5>
+                            <p class="concept-text">
+                                Instrucciones y algoritmos que definen el comportamiento del robot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IA -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/IA.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Inteligencia Artificial</h5>
+                            <p class="concept-text">
+                                Capacidad del robot para tomar decisiones basadas en datos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cinemática y Dinámica -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Cinematica y Dinamica.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Cinemática y Dinámica</h5>
+                            <p class="concept-text">
+                                Estudio del movimiento y las fuerzas que actúan en el robot.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Entradas -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Entradas Sensores.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Entradas/Sensores</h5>
+                            <p class="concept-text">
+                                Componentes que permiten detectar el entorno.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Actuadores output -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Actuador Output.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Actuadores (Output)</h5>
+                            <p class="concept-text">
+                                Componentes que realizan acciones físicas como motores o LEDs.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arduino -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Arduino.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Arduino</h5>
+                            <p class="concept-text">
+                                Placas electrónicas para conectar sensores y actuadores.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arduino IDE -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/ArduinoIDE.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Arduino IDE</h5>
+                            <p class="concept-text">
+                                Software para programar placas Arduino.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jumpers -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/Jumpers.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Jumpers</h5>
+                            <p class="concept-text">
+                                Cables para conectar componentes sin soldar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cable USB -->
+                <div class="col-md-4">
+                    <div class="concept-card">
+                        <img src="/images/CableUSB.jpg" class="concept-img" />
+                        <div class="concept-body">
+                            <h5 class="concept-title">Cable USB</h5>
+                            <p class="concept-text">
+                                Permite alimentar y programar la placa Arduino.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+    

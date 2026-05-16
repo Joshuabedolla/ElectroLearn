@@ -1,0 +1,458 @@
+﻿@model List<Curso>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    var usuario = Context.Session.GetString("usuario");
+
+    var loginMessage = TempData["LoginMessage"] as string;
+    var logoutMessage = TempData["LogoutMessage"] as string;
+    var welcomeMessage = TempData["WelcomeMessage"] as string;
+}
+
+@if (string.IsNullOrEmpty(usuario))
+{
+    <script>
+        alert("Debes iniciar sesión");
+        window.location.href = "/Auth/Login";
+    </script>
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | ElectroLearn</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('/images/Robotica.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+            body::before {
+                content: "";
+                position: fixed;
+                inset: 0;
+                background: rgba(0,0,0,0.6);
+                z-index: -1;
+            }
+
+        .toggle-btn {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            z-index: 2000;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            background: rgba(2, 6, 23, 0.85);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+            .toggle-btn:hover {
+                background: rgba(0, 198, 255, 0.25);
+                transform: scale(1.08);
+            }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(2, 6, 23, 0.98);
+            padding: 20px;
+            padding-top: 70px;
+            transition: transform 0.35s ease;
+            z-index: 1500;
+        }
+
+            .sidebar.hidden {
+                transform: translateX(-100%);
+            }
+
+        .logo {
+            color: #00c6ff;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .user {
+            color: #cbd5e1;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 12px 10px;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.2s;
+            font-size: 15px;
+        }
+
+            .menu a:hover {
+                background: rgba(0, 198, 255, 0.12);
+                color: #00c6ff;
+                padding-left: 14px;
+            }
+
+        .logout {
+            margin-top: 20px;
+            display: block;
+            color: #ff6b6b;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+            .logout:hover {
+                color: #ff3b3b;
+            }
+
+        .main {
+            margin-left: 240px;
+            padding: 30px;
+            transition: 0.35s ease;
+        }
+
+            .main.full {
+                margin-left: 0;
+            }
+
+            .main h2 {
+                font-size: 28px;
+                font-weight: 600;
+                margin-bottom: 25px;
+            }
+
+        /* 🔥 CARDS */
+
+        .card-course {
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+            .card-course:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            }
+
+        .course-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-course h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .card-course p {
+            font-size: 15px;
+            color: #cbd5e1 !important;
+            flex-grow: 1;
+        }
+
+        .btn-custom {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            border: none;
+            color: white;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            .btn-custom:hover {
+                box-shadow: 0 0 12px rgba(0,198,255,0.5);
+                color: white;
+            }
+
+        .alert-custom {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 3000;
+            min-width: 320px;
+            border: none;
+            border-radius: 14px;
+            backdrop-filter: blur(10px);
+            background: rgba(15, 23, 42, 0.92);
+            color: white;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            animation: fadeIn 0.5s ease;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .auth-btn,
+        .dashboard-btn,
+        .logout-btn {
+            min-width: 125px;
+            height: 48px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+<<<<<<< HEAD
+
+        /* 📱 RESPONSIVE SIN ROMPER TU DISEÑO */
+
+        @@media (max-width: 768px) {
+
+            body {
+                overflow-x: hidden;
+            }
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+                .sidebar.hidden {
+                    transform: translateX(-100%);
+                }
+
+            .main {
+                margin-left: 0 !important;
+                width: 100% !important;
+                padding: 90px 15px 20px 15px;
+            }
+
+                .main.full {
+                    margin-left: 0 !important;
+                    width: 100% !important;
+                }
+
+            .toggle-btn {
+                top: 12px;
+                left: 12px;
+            }
+
+            .main h2 {
+                font-size: 22px;
+                text-align: center;
+            }
+
+            .alert-custom {
+                left: 10px;
+                right: 10px;
+                min-width: auto;
+            }
+
+            .card-course {
+                min-height: auto;
+            }
+
+                .card-course h4 {
+                    font-size: 16px;
+                }
+
+                .card-course p {
+                    font-size: 14px;
+                }
+
+            .course-img {
+                height: 190px;
+                object-fit: cover;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .user {
+                font-size: 14px;
+                word-break: break-word;
+            }
+        }
+
+=======
+>>>>>>> 5bb86df25146a3eccd280d0fe9d126f97504ba04
+    </style>
+</head>
+
+<body>
+
+    @if (!string.IsNullOrEmpty(loginMessage))
+    {
+        <div class="alert alert-success alert-custom text-center">
+            ✅ @loginMessage
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(welcomeMessage))
+    {
+        <div class="alert alert-info alert-custom text-center">
+            👋 @welcomeMessage
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(logoutMessage))
+    {
+        <div class="alert alert-danger alert-custom text-center">
+            🚪 @logoutMessage
+        </div>
+    }
+
+    <button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
+        ☰
+    </button>
+
+    <div id="sidebar" class="sidebar">
+
+        <div class="logo">⚡ ElectroLearn</div>
+
+        <div class="user">@usuario</div>
+
+        <div class="menu">
+            <a asp-controller="Dashboard" asp-action="Index">🏠 Inicio</a>
+            <a asp-controller="Dashboard" asp-action="MisCursos">📚 Mis cursos</a>
+            <a asp-controller="Dashboard" asp-action="Videos">🎥 Videos</a>
+            <a asp-controller="Dashboard" asp-action="Configuracion">⚙️ Configuración</a>
+        </div>
+
+        <a href="/Auth/Logout" class="logout">🚪 Cerrar sesión</a>
+
+    </div>
+
+    <div id="mainContent" class="main">
+
+        <h2>Bienvenido, @usuario 👋</h2>
+
+        <div class="row mt-4">
+
+            @if (Model != null && Model.Any())
+            {
+                @foreach (var curso in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+
+                        <div class="card-course">
+
+                            @if (!string.IsNullOrEmpty(curso.ImagenUrl))
+                            {
+                                <img src="@curso.ImagenUrl"
+                                     class="course-img" />
+                            }
+
+                            <div class="card-content">
+
+                                <h4>@curso.Titulo</h4>
+
+                                <p>@curso.Descripcion</p>
+
+                                <a class="btn btn-custom w-100 mt-2"
+                                   href="/Curso/Details/@curso.Id">
+                                    Ver curso
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center mt-5">
+                    <h4>No hay cursos disponibles</h4>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function toggleSidebar() {
+
+            const sidebar = document.getElementById("sidebar");
+            const main = document.getElementById("mainContent");
+            const btn = document.getElementById("btnToggle");
+
+            sidebar.classList.toggle("hidden");
+            main.classList.toggle("full");
+
+            btn.innerHTML = sidebar.classList.contains("hidden")
+                ? "☰"
+                : "✖";
+        }
+
+        setTimeout(() => {
+
+            const alerts = document.querySelectorAll(".alert-custom");
+
+            alerts.forEach(alert => {
+
+                alert.style.transition = "0.5s";
+                alert.style.opacity = "0";
+
+                setTimeout(() => {
+                    alert.remove();
+                }, 500);
+
+            });
+
+        }, 3000);
+
+    </script>
+
+</body>
+</html>

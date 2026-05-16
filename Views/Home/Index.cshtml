@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<style>
+    /* Fondo futurista */
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        color: white;
+    }
+
+        /* Capa oscura para mejorar contraste */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+    /* Tarjetas con efecto glassmorphism */
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+        transition: transform 0.2s;
+    }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+    /* Títulos y botones */
+    h1, h3, h4, p {
+        text-shadow: 0 0 8px rgba(0, 198, 255, 0.7);
+    }
+
+        h1 span {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+    .btn-primary, .btn-outline-primary {
+        border-radius: 30px;
+        font-weight: 600;
+    }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #0072ff, #00c6ff);
+        }
+
+    .btn-outline-primary {
+        border-color: #00c6ff;
+        color: #00c6ff;
+    }
+
+        .btn-outline-primary:hover {
+            background: #00c6ff;
+            color: white;
+        }
+</style>
+
+<div class="container mt-5">
+
+    <!-- HERO -->
+    <div class="text-center mb-5">
+        <h1 class="fw-bold display-4">
+            Bienvenido a <span>ElectroLearn ⚡</span>
+        </h1>
+
+        <p class="lead">
+            Aprende electrónica desde cero hasta nivel avanzado con cursos interactivos
+        </p>
+
+        <a href="/Auth/Registro" class="btn btn-primary btn-lg mt-3">
+            Empezar ahora
+        </a>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div class="row text-center">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4">
+                <h4>📚 Cursos prácticos</h4>
+                <p>Aprende con ejemplos reales y proyectos paso a paso.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4">
+                <h4>⚡ Aprende rápido</h4>
+                <p>Contenido directo, sin teoría innecesaria.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm p-4">
+                <h4>🎯 Nivel progresivo</h4>
+                <p>Desde principiante hasta experto en electrónica.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="text-center mt-5 mb-5">
+        <h3>¿Listo para comenzar?</h3>
+        <a href="/Auth/Registro" class="btn btn-outline-primary btn-lg mt-3">
+            Crear cuenta gratis
+        </a>
+    </div>
+
+</div >
