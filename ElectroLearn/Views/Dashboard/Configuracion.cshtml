@@ -1,0 +1,340 @@
+﻿@model ElectroLearn.Models.ConfiguracionViewModel
+
+@{
+    ViewData["Title"] = "Configuración";
+    var usuario = Context.Session.GetString("usuario");
+}
+
+@if (string.IsNullOrEmpty(usuario))
+{
+    <style>
+        .login-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.88);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            backdrop-filter: blur(6px);
+        }
+
+        .login-message {
+            background: rgba(15, 23, 42, 0.96);
+            padding: 25px 35px;
+            border-radius: 18px;
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            border-left: 5px solid #ff3b3b;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: zoomIn .3s ease;
+        }
+
+        @@keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+
+    <div class="login-overlay">
+        <div class="login-message">
+            🔒 Debes iniciar sesión
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            window.location.replace("/Auth/Login");
+        }, 800);
+    </script>
+
+    return;
+}
+
+<style>
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+    }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            z-index: -1;
+        }
+
+    .toggle-btn {
+        position: fixed;
+        top: 18px;
+        left: 18px;
+        z-index: 2000;
+        width: 42px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: white;
+        background: rgba(2, 6, 23, 0.85);
+        border: 1px solid rgba(255,255,255,0.15);
+        border-radius: 12px;
+        cursor: pointer;
+        transition: 0.25s ease;
+    }
+
+        .toggle-btn:hover {
+            background: rgba(0, 198, 255, 0.25);
+            transform: scale(1.08);
+        }
+
+    .sidebar {
+        width: 240px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: rgba(2, 6, 23, 0.98);
+        padding: 20px;
+        padding-top: 70px;
+        transition: transform 0.35s ease;
+        z-index: 1500;
+    }
+
+        .sidebar.hidden {
+            transform: translateX(-100%);
+        }
+
+        .sidebar h5 {
+            color: #00c6ff;
+            margin-bottom: 20px;
+        }
+
+    .menu a {
+        display: block;
+        padding: 12px 10px;
+        margin-bottom: 6px;
+        color: #cbd5e1;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: 0.2s;
+    }
+
+        .menu a:hover {
+            background: rgba(0, 198, 255, 0.12);
+            color: #00c6ff;
+            padding-left: 14px;
+        }
+
+    .logout {
+        margin-top: 15px;
+        display: block;
+        padding: 12px 10px;
+        border-radius: 10px;
+        color: #ff6b6b;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+        .logout:hover {
+            background: rgba(255,0,0,0.15);
+            color: #ff3b3b;
+            padding-left: 14px;
+        }
+
+    .main {
+        margin-left: 240px;
+        width: calc(100% - 240px);
+        padding: 20px;
+        transition: 0.35s ease;
+    }
+
+        .main.full {
+            margin-left: 0;
+            width: 100%;
+        }
+
+    .config-card {
+        background: rgba(30, 41, 59, 0.85);
+        border-radius: 18px;
+        padding: 30px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .config-title {
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #00c6ff;
+        font-size: 22px;
+    }
+
+    label {
+        color: #cbd5e1;
+        margin-top: 12px;
+        font-size: 14px;
+    }
+
+    .form-control {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+        .form-control:focus {
+            border-color: #00c6ff;
+            box-shadow: 0 0 10px rgba(0,198,255,0.3);
+            color: white;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+    .btn-save {
+        background: linear-gradient(90deg, #00c6ff, #0072ff);
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn-pass {
+        background: linear-gradient(90deg, #ff416c, #ff4b2b);
+        border: none;
+        border-radius: 10px;
+    }
+
+        .btn-save:hover,
+        .btn-pass:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 12px rgba(0,198,255,0.4);
+        }
+
+    .alert {
+        border-radius: 10px;
+    }
+
+    hr {
+        border-color: rgba(255,255,255,0.1);
+        margin: 25px 0;
+    }
+</style>
+
+<!-- ☰ BOTÓN -->
+<button class="toggle-btn" id="btnToggle" onclick="toggleSidebar()">
+    ☰
+</button>
+
+<!-- 📂 SIDEBAR -->
+<div id="sidebar" class="sidebar">
+
+    <h5>⚡ ElectroLearn</h5>
+
+    <div class="menu">
+        <a href="/Dashboard">🏠 Inicio</a>
+        <a href="/Dashboard/MisCursos">📚 Mis cursos</a>
+        <a href="/Dashboard/Videos">🎥 Videos</a>
+        <a href="/Dashboard/Configuracion">⚙️ Configuración</a>
+
+        <a href="/Auth/Logout" class="logout">
+            🚪 Cerrar sesión
+        </a>
+    </div>
+
+</div>
+
+<!-- 📄 MAIN -->
+<div id="mainContent" class="main">
+
+    <div class="config-card">
+
+        <h3 class="config-title">
+            ⚙️ Configuración
+        </h3>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">
+                @TempData["Success"]
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["Error"]
+            </div>
+        }
+
+        <!-- 👤 PERFIL -->
+        <form asp-action="GuardarPerfil" method="post">
+
+            <label>Nombre</label>
+            <input asp-for="Nombre" class="form-control" />
+
+            <label>Email</label>
+            <input asp-for="Email" class="form-control" />
+
+            <button type="submit"
+                    class="btn btn-save w-100 mt-3 text-white">
+                Guardar cambios
+            </button>
+
+        </form>
+
+        <hr />
+
+        <!-- 🔐 PASSWORD -->
+        <form asp-action="configuracion" method="post">
+
+            <label>Contraseña actual</label>
+            <input asp-for="PasswordActual"
+                   type="password"
+                   class="form-control" />
+
+            <label>Nueva contraseña</label>
+            <input asp-for="NuevaPassword"
+                   type="password"
+                   class="form-control" />
+
+            <label>Confirmar contraseña</label>
+            <input asp-for="ConfirmarPassword"
+                   type="password"
+                   class="form-control" />
+
+            <button type="submit"
+                    class="btn btn-pass w-100 mt-3 text-white">
+                Cambiar contraseña
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+    function toggleSidebar() {
+
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("mainContent");
+        const btn = document.getElementById("btnToggle");
+
+        sidebar.classList.toggle("hidden");
+        main.classList.toggle("full");
+
+        btn.innerHTML =
+            sidebar.classList.contains("hidden")
+                ? "☰"
+                : "✖";
+    }
+</script>

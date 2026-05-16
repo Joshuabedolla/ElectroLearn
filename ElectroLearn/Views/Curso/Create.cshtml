@@ -1,0 +1,166 @@
+﻿@model ElectroLearn.Models.Curso
+
+@{
+    ViewData["Title"] = "Crear Curso";
+}
+
+<style>
+    body {
+        background: url('/images/Robotica.jpg') no-repeat center center fixed;
+        background-size: cover;
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+        /* 🔥 overlay oscuro */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: -1;
+        }
+
+    .create-container {
+        max-width: 600px;
+        margin: auto;
+        margin-top: 60px;
+        background: rgba(30, 41, 59, 0.85);
+        padding: 30px;
+        border-radius: 20px;
+        backdrop-filter: blur(15px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        animation: fadeInUp 0.6s ease;
+    }
+
+    .form-control {
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.1);
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #00c6ff;
+            box-shadow: 0 0 10px #00c6ff;
+        }
+
+    label {
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    .preview-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-top: 10px;
+        display: none;
+        border: 2px solid #00c6ff;
+    }
+
+    .btn-glow {
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        transition: 0.3s;
+    }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 15px #00c6ff;
+            transform: scale(1.02);
+        }
+
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="create-container">
+
+    <h2 class="text-center mb-4">➕ Crear Curso</h2>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label>Título</label>
+            <span class="text-danger" asp-validation-for="Titulo"> </span>
+            <input asp-for="Titulo" class="form-control"  />
+        </div>
+
+        <div class="mb-3">
+            <label>Descripción</label>
+            <span class="text-danger"
+                          asp-validation-for="Descripcion">
+                    </span>
+            <textarea asp-for="Descripcion" class="form-control" rows="3" ></textarea>
+        </div>
+
+        <!-- 🔥 SUBIR IMAGEN -->
+        <div class="mb-3">
+            <label for="ImagenUrl">Imagen del curso</label>
+            <span class="text-danger" asp-validation-for="ImagenUrl"></span>
+            <input type=text id="imagenUrl" name="ImagenUrl" hidden asp-for="ImagenUrl" />
+
+            <input type="file"
+                   name="imagenFile"
+                   class="form-control"
+                   accept="image/png, image/jpeg"
+                   onchange="previewImage(event)" />
+
+            <img id="preview" class="preview-img" />
+        </div>
+
+        <button type="submit" class="btn btn-glow w-100">
+            💾 Guardar Curso
+        </button>
+
+        <a asp-action="Index" class="btn btn-outline-light w-100 mt-2">
+            ⬅ Volver
+        </a>
+    </form>
+
+</div>
+
+
+
+<script>
+    function previewImage(event) {
+
+        const file = event.target.files[0];
+        const preview = document.getElementById("preview");
+
+        if (!file) return;
+
+        const allowedTypes = ["image/png", "image/jpeg"];
+
+        if (!allowedTypes.includes(file.type)) {
+
+            alert("Archivo no compatible");
+
+            event.target.value = "";
+            preview.style.display = "none";
+
+            return;
+        }
+
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+        document.getElementById("imagenUrl").value = file.name;
+
+    }
+</script>

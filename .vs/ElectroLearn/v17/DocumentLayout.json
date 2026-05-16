@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\controllers\\videocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\controllers\\videocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\models\\video.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\models\\video.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|c:\\users\\bedol\\source\\repos\\electrolearn\\electrolearn\\views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{294E6521-ABE8-483D-BA26-14A7087F1E0D}|ElectroLearn\\ElectroLearn.csproj|solutionrelative:electrolearn\\views\\home\\contacto.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "ElectroLearn\\Controllers\\DashboardController.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAAIwIkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T03:17:17.665Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "ElectroLearn\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAAwIgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T03:15:06.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260515030410_AgregarUsuarioId.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs",
+              "RelativeToolTip": "ElectroLearn\\Migrations\\20260515030410_AgregarUsuarioId.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T03:04:12.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "20260515030130_FixUsuarioCursos.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs",
+              "RelativeToolTip": "ElectroLearn\\Migrations\\20260515030130_FixUsuarioCursos.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T03:01:31.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "20260515025647_UsuarioCursosFix.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs",
+              "RelativeToolTip": "ElectroLearn\\Migrations\\20260515025647_UsuarioCursosFix.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T02:56:48.701Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VideoController.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\VideoController.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Controllers\\VideoController.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Controllers\\VideoController.cs",
+              "RelativeToolTip": "ElectroLearn\\Controllers\\VideoController.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAAAKkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T02:42:11.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Video.cs",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Models\\Video.cs",
+              "RelativeDocumentMoniker": "ElectroLearn\\Models\\Video.cs",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Models\\Video.cs",
+              "RelativeToolTip": "ElectroLearn\\Models\\Video.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAcwBIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T02:34:07.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Contacto.cshtml",
+              "DocumentMoniker": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Home\\Contacto.cshtml",
+              "RelativeDocumentMoniker": "ElectroLearn\\Views\\Home\\Contacto.cshtml",
+              "ToolTip": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\Views\\Home\\Contacto.cshtml",
+              "RelativeToolTip": "ElectroLearn\\Views\\Home\\Contacto.cshtml",
+              "ViewState": "AgIAAOkAAAAAAAAAAAAQwPUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-14T23:10:43.746Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
