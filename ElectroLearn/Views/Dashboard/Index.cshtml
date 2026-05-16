@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Inicio";
     var cursos = Model ?? new List<ElectroLearn.Models.Curso>();
+    Console.WriteLine(cursos);
 }
 
 <style>
@@ -119,6 +120,29 @@
         color: #ff6b6b;
         transition: 0.2s;
     }
+    dashboard-btn {
+            background: linear-gradient(135deg, #2563eb, #00c6ff);
+            color: white !important;
+            border: none;
+            box-shadow: 0 4px 14px rgba(0, 198, 255, 0.35);
+        }
+
+        .auth-btn,
+        .dashboard-btn,
+        .logout-btn {
+            min-width: 125px;
+            height: 48px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: 0.3s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
         .logout-link:hover {
             background: rgba(255,0,0,0.15);

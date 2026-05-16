@@ -261,13 +261,7 @@
             ⚙️ Configuración
         </h3>
 
-        @if (TempData["Success"] != null)
-        {
-            <div class="alert alert-success">
-                @TempData["Success"]
-            </div>
-        }
-
+       
         @if (TempData["Error"] != null)
         {
             <div class="alert alert-danger">
@@ -292,6 +286,13 @@
         </form>
 
         <hr />
+
+        @if (TempData["ErrorPass"] != null)
+        {
+            <div class="alert alert-danger">
+                @TempData["ErrorPass"]
+            </div>
+        }
 
         <!-- 🔐 PASSWORD -->
         <form asp-action="CambiarPassword" method="post">

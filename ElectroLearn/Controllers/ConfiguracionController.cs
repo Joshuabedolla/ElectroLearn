@@ -18,7 +18,7 @@ namespace ElectroLearn.Controllers
         // ===================== VISTA =====================
         public IActionResult Index()
         {
-            int? userId = HttpContext.Session.GetInt32("userId");
+            int? userId = HttpContext.Session.GetInt32("usuarioId");
 
             if (userId == null)
             {
@@ -45,7 +45,8 @@ namespace ElectroLearn.Controllers
         [HttpPost]
         public IActionResult GuardarPerfil(ConfiguracionViewModel model)
         {
-            int? userId = HttpContext.Session.GetInt32("userId");
+            int? userId = HttpContext.Session.GetInt32("usuarioId");
+
 
             if (userId == null)
             {
@@ -55,23 +56,29 @@ namespace ElectroLearn.Controllers
 
             var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == userId);
 
-            if (usuario == null)
-                return NotFound();
+            if (usuario == null){
+                TempData["Error"] = "Error al actualizar perfil";
+                return RedirectToAction("Index");
+            }
+                
 
             usuario.Nombre = model.Nombre;
             usuario.Email = model.Email;
 
             _context.SaveChanges();
+            HttpContext.Session.SetString("usuario", usuario.Nombre);
+
 
             TempData["Success"] = "Perfil actualizado correctamente";
             return RedirectToAction("Index");
+            
         }
 
         // ===================== PASSWORD =====================
         [HttpPost]
         public IActionResult CambiarPassword(ConfiguracionViewModel model)
         {
-            int? userId = HttpContext.Session.GetInt32("userId");
+            int? userId = HttpContext.Session.GetInt32("usuarioId");
 
             if (userId == null)
             {
@@ -81,25 +88,27 @@ namespace ElectroLearn.Controllers
 
             var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == userId);
 
-            if (usuario == null)
-                return NotFound();
+            if (usuario == null){
+                TempData["ErrorPass"] = "Error al actualizar la contraseña";
+                return RedirectToAction("Index");
+            }
 
             if (string.IsNullOrWhiteSpace(model.PasswordActual) ||
                 string.IsNullOrWhiteSpace(model.NuevaPassword))
             {
-                TempData["Error"] = "Debes completar todos los campos";
+                TempData["ErrorPass"] = "Debes completar todos los campos";
                 return RedirectToAction("Index");
             }
 
             if (!BCrypt.Net.BCrypt.Verify(model.PasswordActual, usuario.PasswordHash))
             {
-                TempData["Error"] = "Contraseña actual incorrecta";
+                TempData["ErrorPass"] = "Contraseña actual incorrecta";
                 return RedirectToAction("Index");
             }
 
             if (model.NuevaPassword != model.ConfirmarPassword)
             {
-                TempData["Error"] = "Las contraseñas no coinciden";
+                TempData["ErrorPass"] = "Las contraseñas no coinciden";
                 return RedirectToAction("Index");
             }
 

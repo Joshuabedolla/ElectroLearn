@@ -4972,31 +4972,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bedol\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/tl/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\ElectroLearn.csproj",
+      "projectUniqueName": "/home/tl/dev/dotnet/ElectroLearn/ElectroLearn/ElectroLearn.csproj",
       "projectName": "ElectroLearn",
-      "projectPath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\ElectroLearn.csproj",
-      "packagesPath": "C:\\Users\\Bedol\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bedol\\source\\repos\\ElectroLearn\\ElectroLearn\\obj\\",
+      "projectPath": "/home/tl/dev/dotnet/ElectroLearn/ElectroLearn/ElectroLearn.csproj",
+      "packagesPath": "/home/tl/.nuget/packages/",
+      "outputPath": "/home/tl/dev/dotnet/ElectroLearn/ElectroLearn/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bedol\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/tl/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -5014,8 +5007,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -5067,7 +5059,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/opt/dotnet/sdk/8.0.412/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -4,12 +4,10 @@ namespace ElectroLearn.ViewModels
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage = "El correo es obligatorio")]
-        [EmailAddress(ErrorMessage = "Correo inválido")]
+        [Required(ErrorMessage = "El correo es obligatorio")]        
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "La contraseña es obligatoria")]
-        [MinLength(6, ErrorMessage = "La contraseña debe tener al menos 6 caracteres")]
+        [Required(ErrorMessage = "La contraseña es obligatoria")]        
         public string Password { get; set; }
     }
 }

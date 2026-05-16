@@ -98,17 +98,23 @@
 
         <div class="mb-3">
             <label>Título</label>
-            <input asp-for="Titulo" class="form-control" required />
+            <span class="text-danger" asp-validation-for="Titulo"> </span>
+            <input asp-for="Titulo" class="form-control"  />
         </div>
 
         <div class="mb-3">
             <label>Descripción</label>
-            <textarea asp-for="Descripcion" class="form-control" rows="3" required></textarea>
+            <span class="text-danger"
+                          asp-validation-for="Descripcion">
+                    </span>
+            <textarea asp-for="Descripcion" class="form-control" rows="3" ></textarea>
         </div>
 
         <!-- 🔥 SUBIR IMAGEN -->
         <div class="mb-3">
-            <label>Imagen del curso</label>
+            <label for="ImagenUrl">Imagen del curso</label>
+            <span class="text-danger" asp-validation-for="ImagenUrl"></span>
+            <input type=text id="imagenUrl" name="ImagenUrl" hidden asp-for="ImagenUrl" />
 
             <input type="file"
                    name="imagenFile"
@@ -129,6 +135,8 @@
     </form>
 
 </div>
+
+
 
 <script>
     function previewImage(event) {
@@ -152,5 +160,7 @@
 
         preview.src = URL.createObjectURL(file);
         preview.style.display = "block";
+        document.getElementById("imagenUrl").value = file.name;
+
     }
 </script>
