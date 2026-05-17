@@ -4,7 +4,6 @@
     ViewData["Title"] = "Mis Cursos";
     var openModal = ViewBag.OpenModal;
 
-
     var cursos = Model ?? new List<ElectroLearn.Models.Curso>();
 
     var usuario = Context.Session.GetString("usuario");
@@ -130,17 +129,12 @@
         margin-left: 240px;
         width: calc(100% - 240px);
         transition: 0.35s ease;
-<<<<<<< HEAD
         padding: 25px;
-=======
-        width: calc(100% - 240px);
->>>>>>> 5bb86df25146a3eccd280d0fe9d126f97504ba04
     }
 
         .main.full {
             width: 100%;
             margin-left: 0;
-            width: 100%;
         }
 
     .course-card {
@@ -364,7 +358,6 @@
 
                 </div>
 
-<<<<<<< HEAD
                 <!-- 🎬 MODAL VIDEO -->
                 <div class="modal fade"
                      id="videoModal-@curso.Id"
@@ -392,13 +385,15 @@
                                   asp-action="Create"
                                   method="post">
 
+                                @Html.AntiForgeryToken()
+
                                 <div class="modal-body">
 
                                     <input type="hidden"
                                            name="CursoId"
                                            value="@curso.Id" />
 
-                                    <label class="mb-2">
+                                    <label class="mb-2" id="labelTitulo">
                                         Título del video
                                     </label>
 
@@ -407,7 +402,7 @@
                                            class="form-control mb-3"
                                            required />
 
-                                    <label class="mb-2">
+                                    <label class="mb-2" id="labelUrl">
                                         URL del video
                                     </label>
 
@@ -432,40 +427,6 @@
                                         Guardar Video
                                     </button>
 
-=======
-                <div class="modal fade" id="videoModal-@curso.Id" tabindex="-1">
-                    <div class="modal-dialog">
-
-                        <div class="modal-content bg-dark text-white">
-
-                            <form asp-controller="Video" asp-action="Crear" method="post">
-                                @Html.AntiForgeryToken()
-
-                                <div class="modal-header">
-                                    <h5 class="modal-title">➕ Agregar Video</h5>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <div class="modal-body">
-
-                                    <input type="hidden" name="CursoId" value="@curso.Id" />
-
-                                    <label id="labelTitulo">Título</label>
-                                    
-                                    <input name="Titulo"  class="form-control mb-2" />
-
-                                    <label id="labelUrl" for="YoutubeUrl">YouTube URL</label>
-                                    
-                                    
-                                    <input name="YoutubeUrl" class="form-control mb-2"  />
-
-                                </div>
-
-                                <div class="modal-footer">
-                                    <button type="submit" class="btn btn-success w-100">
-                                        💾 Guardar Video
-                                    </button>
->>>>>>> 5bb86df25146a3eccd280d0fe9d126f97504ba04
                                 </div>
 
                             </form>
@@ -473,10 +434,7 @@
                         </div>
 
                     </div>
-<<<<<<< HEAD
 
-=======
->>>>>>> 5bb86df25146a3eccd280d0fe9d126f97504ba04
                 </div>
             }
 
@@ -508,53 +466,37 @@
                 ? "✖"
                 : "☰";
     }
-<<<<<<< HEAD
+
+    const limpiarModal = (idModal) => {
+
+        const modal = document.getElementById(idModal);
+
+        modal.querySelectorAll(".text-danger")
+             .forEach(elemento => elemento.remove());
+
+        modal.querySelector('[name="Titulo"]').value = '';
+        modal.querySelector('[name="YoutubeUrl"]').value = '';
+    }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-=======
-    const limpiarModal = (idModal) => {
-        const modal = document.getElementById(idModal);
-        modal.querySelectorAll(".text-danger").forEach(elemento => elemento.remove())
-        modal.querySelector('[name="Titulo"]').value = ''
-        modal.querySelector('[name="YoutubeUrl"]').value = ''
-        
-
-    }
-
-</script>
-
 
 @if (TempData["ModalId"] != null)
 {
     <script>
-    
+
         document.addEventListener("DOMContentLoaded", function () {
 
             const modalId = "videoModal-@TempData["ModalId"]";
 
             const modalElement =
                 document.getElementById(modalId);
-                
 
             const modal =
                 new bootstrap.Modal(modalElement);
-            // mostrar errores
-            modalElement.querySelector("#labelTitulo").insertAdjacentHTML("afterend",
-            '@if(TempData["ErrorTitulo"] != null ){<span class="text-danger">  @TempData["ErrorTitulo"]</span>}')
-
-            modalElement.querySelector("#labelUrl").insertAdjacentHTML("afterend",
-            '@if(TempData["ErrorUrl"] != null ){<span class="text-danger">  @TempData["ErrorUrl"]</span>}')
-
-            // mostrar valores
-            modalElement.querySelector('[name="Titulo"]').value = '@if(TempData["Titulo"] != null ){@TempData["Titulo"]}'
-
-            modalElement.querySelector('[name="YoutubeUrl"]').value = '@if(TempData["Url"] != null ){@TempData["Url"]}'
-
-
 
             modal.show();
         });
+
     </script>
 }
->>>>>>> 5bb86df25146a3eccd280d0fe9d126f97504ba04

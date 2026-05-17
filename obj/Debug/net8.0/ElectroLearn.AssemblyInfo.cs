@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ElectroLearn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0d25f3062108f0652998abfff2edf321a929d6c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+829b42b746133774d44b717f47439c15472d057f")]
 [assembly: System.Reflection.AssemblyProductAttribute("ElectroLearn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ElectroLearn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
